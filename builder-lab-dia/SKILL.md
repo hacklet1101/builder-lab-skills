@@ -31,7 +31,7 @@ Nunca empieces el día preguntando "¿qué quieres hacer hoy?". Lo dice el `ALCA
 
 | Día | Objetivo | Gate para darlo por cerrado |
 |---|---|---|
-| 2 | Las 2 pantallas del camino core, con datos del seed | Puedes recorrer la acción core a mano, aunque sea feo |
+| 2 | Login y registro funcionando, y las 2 pantallas del camino core con datos del seed | Entras con una cuenta nueva y recorres la acción core a mano, aunque sea feo |
 | 3 | Escritura real: crear/editar la entidad principal | Los datos persisten y se ven tras recargar |
 | 4 | Terminar P0 + el resto del camino core | **P0 completo de punta a punta en local** |
 | 5 | P1: lo que hace la app usable (errores, vacíos, carga) | Un test e2e del camino core pasa |

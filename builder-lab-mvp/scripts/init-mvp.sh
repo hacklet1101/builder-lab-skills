@@ -98,6 +98,7 @@ fi
 # ── 3. Estructura de carpetas ──────────────────────────────────────────────
 info "Creando estructura"
 mkdir -p src/modules src/lib src/components/ui src/styles prisma docs
+mkdir -p "src/app/(auth)/login"
 done_ "carpetas"
 
 # ── 4. Ficheros base (no se sobrescribe nada) ──────────────────────────────
@@ -119,6 +120,10 @@ copiar seed.ts         prisma/seed.ts
 copiar env.ts          src/lib/env.ts
 copiar db.ts           src/lib/db.ts
 copiar tokens.css      src/styles/tokens.css
+copiar auth.ts         src/lib/auth.ts
+copiar proxy.ts        src/proxy.ts
+copiar login-page.tsx  "src/app/(auth)/login/page.tsx"
+copiar login-actions.ts "src/app/(auth)/login/actions.ts"
 
 
 # el verificador de reglas vive en el proyecto, no en el skill
@@ -231,6 +236,7 @@ Proyecto creado en $DESTINO
 
 Falta esto, y lo tienes que hacer tú (no lo hace el script):
 
+  0. Si tu app NO tiene usuarios: borra src/proxy.ts y src/app/(auth)
   1. Crear el proyecto en supabase.com y guardar la contraseña de la BD
   2. Copiar DATABASE_URL, DIRECT_URL, NEXT_PUBLIC_SUPABASE_URL y
      NEXT_PUBLIC_SUPABASE_ANON_KEY al fichero .env

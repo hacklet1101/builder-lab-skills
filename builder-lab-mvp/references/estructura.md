@@ -121,12 +121,12 @@ servidor — nunca con uno que llegue del cliente.
 
 `src/app/api/clases/route.ts`
 ```ts
-import { getUsuarioActual } from '@/lib/auth'
+import { obtenerUsuarioActual } from '@/lib/auth'
 import { crearClaseSchema } from '@/modules/clases/clases.schema'
 import { crearClase } from '@/modules/clases/clases.service'
 
 export async function POST(req: Request) {
-  const user = await getUsuarioActual()
+  const user = await obtenerUsuarioActual()
   if (!user) return Response.json({ error: 'No autorizado' }, { status: 401 })
 
   const parsed = crearClaseSchema.safeParse(await req.json())

@@ -13,7 +13,7 @@ const DEMO_EMAIL = 'demo@example.com'
 
 async function main() {
   // Usuario de demo.
-  // authId va vacío a propósito: getUsuarioActual() lo reclama por email la
+  // authId va vacío a propósito: obtenerUsuarioActual() lo reclama por email la
   // primera vez que alguien inicia sesión con este correo en Supabase. Así los
   // datos del seed pertenecen al usuario con el que vas a hacer la demo.
   // Crea ESE MISMO email en Supabase → Authentication → Users.

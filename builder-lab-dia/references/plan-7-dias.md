@@ -14,19 +14,22 @@ commit hecho.
 
 ---
 
-## Día 2 — Ver datos
+## Día 2 — Entrar y ver datos
 
-Las pantallas del camino core, leyendo del seed. **Nada de formularios todavía.**
+**Primero el login.** El scaffold ya lo trae; hoy se comprueba que funciona de verdad.
+Si el producto no tiene usuarios, sáltate los puntos 1 y 2.
 
-1. `npm run seed` con datos realistas (nombres de verdad, fechas de verdad).
-2. La pantalla principal lista esos datos.
-3. La pantalla de detalle muestra uno.
-4. Navegación mínima entre ambas.
+1. Crear una cuenta desde `/login` y entrar. Cerrar sesión y volver a entrar.
+2. Una página privada manda a `/login` si no hay sesión (pruébalo en incógnito).
+3. `npm run seed` con datos realistas (nombres de verdad, fechas de verdad).
+4. La pantalla principal lista esos datos, **filtrados por el usuario de la sesión**.
+5. La pantalla de detalle muestra uno.
+6. Navegación mínima entre ambas.
 
 Feo está bien. Sin estilo está bien. El objetivo es **ver datos reales en pantalla**.
 
-**Gate:** puedes recorrer el camino core con el ratón, aunque no se pueda crear nada.
-Desplegado.
+**Gate:** creas una cuenta nueva en producción, entras, y recorres el camino core con
+el ratón, aunque todavía no se pueda crear nada. Desplegado.
 
 **Trampa del día 2:** ponerse a diseñar. Si aparece la palabra "color", vuelve a la lista.
 

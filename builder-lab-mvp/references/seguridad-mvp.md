@@ -23,7 +23,7 @@ const reserva = await db.booking.findFirst({
 
 Vale para leer, editar y borrar. **Sobre todo para borrar.**
 
-Y el id del usuario sale **siempre** de `getUsuarioActual()`. Nunca de un campo del
+Y el id del usuario sale **siempre** de `obtenerUsuarioActual()`. Nunca de un campo del
 formulario, de un parámetro de la URL ni de una cabecera. Todo eso lo controla quien
 usa el navegador.
 
@@ -102,7 +102,7 @@ probándolo en el navegador**, no de memoria. Lo que salga mal se arregla hoy.
 - [ ] `npm run check` no avisa de ninguna query que busque solo por `id`.
 - [ ] Cada `findFirst` / `findUnique` / `update` / `delete` sobre datos de un usuario
       lleva su id en el `where`.
-- [ ] Ese id sale de `getUsuarioActual()`, nunca del formulario, la URL o una cabecera.
+- [ ] Ese id sale de `obtenerUsuarioActual()`, nunca del formulario, la URL o una cabecera.
 - [ ] **Probado a mano:** crea una segunda cuenta, copia la URL de un detalle de la
       primera y ábrela con la segunda. Debe dar 404 o "no autorizado". Si ves el dato,
       para todo y arréglalo.

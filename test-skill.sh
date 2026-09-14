@@ -31,8 +31,9 @@ cd "$TMP/$NOMBRE"
 
 paso "2/7 ficheros clave"
 for f in CLAUDE.md docs/ALCANCE.md prisma/schema.prisma src/lib/db.ts \
-         src/lib/env.ts src/styles/tokens.css \
-         .env.example check-reglas.sh; do
+         src/lib/env.ts src/lib/auth.ts src/proxy.ts \
+         "src/app/(auth)/login/page.tsx" "src/app/(auth)/login/actions.ts" \
+         src/styles/tokens.css .env.example check-reglas.sh; do
   [ -f "$f" ] && ok "$f" || err "falta $f"
 done
 grep -q "Builder Lab" CLAUDE.md && ok "CLAUDE.md es el del skill" \

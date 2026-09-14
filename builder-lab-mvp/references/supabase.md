@@ -45,62 +45,23 @@ manda es la tuya, enlazada por `authId`. Ver `modelo-datos.md` § El usuario.
 
 Al iniciar sesión, busca o crea el `User` local:
 
-```ts
-// src/lib/auth.ts
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
-import { db } from './db'
-import { env } from './env'
+El código vive en `templates/auth.ts`, que `init-mvp.sh` copia a `src/lib/auth.ts`.
+No lo reescribas: ábrelo y léelo. Expone cuatro funciones:
 
-export async function getSupabase() {
-  const cookieStore = await cookies()
-  return createServerClient(
-    env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    {
-      cookies: {
-        getAll: () => cookieStore.getAll(),
-        setAll: (cookiesToSet) => {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options))
-          } catch {
-            // llamado desde un Server Component: lo refresca el middleware
-          }
-        },
-      },
-    }
-  )
-}
+| | |
+|---|---|
+| `obtenerSupabase()` | cliente de Supabase con las cookies de la petición |
+| `obtenerUsuarioActual()` | el `User` de tu base de datos, o `null` |
+| `exigirUsuario()` | igual, pero redirige a `/login` si no hay sesión |
+| `cerrarSesion()` | cierra la sesión |
 
-/** Usuario de ESTA app. null si no hay sesión. Úsalo siempre. */
-export async function getUsuarioActual() {
-  const supabase = await getSupabase()
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) return null
+La parte importante de `obtenerUsuarioActual()`: si no encuentra el usuario por
+`authId`, busca uno **sembrado con ese email y sin `authId`** y lo reclama. Eso es lo
+que hace que los datos del seed pertenezcan al usuario con el que haces la demo.
 
-  // 1. ¿Ya está enlazado?
-  const existente = await db.user.findUnique({ where: { authId: user.id } })
-  if (existente) return existente
-
-  // 2. ¿Hay un usuario sembrado con ese email sin enlazar? Se reclama.
-  //    Esto es lo que hace que los datos del seed pertenezcan al usuario
-  //    con el que haces la demo.
-  const sembrado = await db.user.findFirst({
-    where: { email: user.email!, authId: null },
-  })
-  if (sembrado) {
-    return db.user.update({ where: { id: sembrado.id }, data: { authId: user.id } })
-  }
-
-  // 3. Usuario nuevo.
-  return db.user.create({ data: { authId: user.id, email: user.email! } })
-}
-```
-
-> El paso 2 confía en que Supabase ha verificado el email. Mientras tengas
-> desactivado "Confirm email" en desarrollo, cualquiera podría registrarse con el
-> correo de demo y quedarse con esos datos. **Reactívalo el día 6** (está en el plan).
+> Ese reclamo confía en que Supabase ha verificado el correo. Mientras tengas
+> desactivado "Confirm email" en desarrollo, alguien podría registrarse con el correo
+> de demo y quedarse con esos datos. **Reactívalo el día 6** (está en el plan).
 
 **Nunca** uses `supabase.auth.getSession()` para decidir si alguien puede ver algo:
 no revalida el token. `getUser()` sí.

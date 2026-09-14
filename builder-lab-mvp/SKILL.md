@@ -78,6 +78,11 @@ Prisma y hace el primer commit.
 **No levantes servicios por tu cuenta.** El script imprime lo que hay que hacer en
 Supabase y espera confirmación.
 
+El scaffold incluye **login y registro funcionando** (`src/lib/auth.ts`,
+`src/proxy.ts` y `src/app/(auth)/login`). Si en la entrevista quedó claro que el
+producto **no tiene usuarios**, borra `src/proxy.ts` y `src/app/(auth)` ahora: si no,
+toda ruta que no sea `/` redirigirá a un login que nadie necesita.
+
 Después: comprueba que `npm run dev` arranca y que la página de inicio carga.
 No declares el paso terminado sin haberlo visto arrancar.
 
@@ -134,6 +139,7 @@ Verifica y reporta con honestidad qué está y qué no:
 - [ ] Primer commit hecho
 - [ ] `CLAUDE.md` en la raíz del proyecto, personalizado
 - [ ] `npm run check` pasa
+- [ ] Si el producto tiene usuarios: registro y login probados en la URL pública
 
 Termina diciendo: *"Mañana empezamos por [primer item de P0]. Invoca la skill
 builder-lab-dia cada mañana."*
@@ -155,8 +161,9 @@ builder-lab-dia cada mañana."*
 ## Plantillas
 
 `templates/` contiene `CLAUDE.md`, `ALCANCE.md`, `README.md`, `env.example`,
-`schema.prisma`, `seed.ts`, `env.ts`, `db.ts`, `tokens.css`, `globals.css`,
-`page.tsx`, `layout.tsx` y `gitignore`.
+`schema.prisma`, `seed.ts`, `env.ts`, `db.ts`, `auth.ts`, `proxy.ts`,
+`login-page.tsx`, `login-actions.ts`, `tokens.css`, `globals.css`, `page.tsx`,
+`layout.tsx` y `gitignore`.
 Los copia `init-mvp.sh` y rellena los `{{PLACEHOLDERS}}`. No los copies a mano.
 
 ## Las reglas se comprueban, no se confían
