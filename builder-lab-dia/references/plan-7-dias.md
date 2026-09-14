@@ -21,7 +21,7 @@ en el hito anterior y saberlo.
 
 Lo cubre la skill `builder-lab-mvp`.
 
-**Gate:** existe una URL pública que carga, `docs/ALCANCE.md` aprobado y el primer
+**Gate H1:** existe una URL pública que carga, `docs/ALCANCE.md` aprobado y el primer
 commit hecho.
 
 ---

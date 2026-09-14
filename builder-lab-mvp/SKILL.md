@@ -96,8 +96,8 @@ Sustituye los `{{PLACEHOLDERS}}`. Contiene:
 - **P1** — lo que la hace usable. Máximo 5 items.
 - **P2** — lo que la hace bonita. Sin límite, pero es lo primero que se borra.
 - **Después del MVP** — todo lo que ha salido en la entrevista y no entra. Explícito.
-- **La regla del día 5:** si el día 5 a las 18:00 el P0 no está completo, se borra
-  todo el P2 del repo y se sigue. Esta regla se acepta HOY, no el día 5.
+- **El corte:** si al acabar el día 5 el P0 no está completo, se borra todo el P2 del
+  repo y se sigue. Esta regla se acepta HOY, no el día 5.
 
 Lee `references/alcance.md` para saber qué recortar. Sé duro: un MVP de 7 días de
 alguien que aprende son **3 pantallas y 2 tablas**, no 10 y 8.
@@ -131,7 +131,7 @@ README, al `ALCANCE.md` y a la Site URL de Supabase.
 
 Verifica y reporta con honestidad qué está y qué no:
 
-- [ ] `docs/ALCANCE.md` aprobado, con P0/P1/P2 y la regla del día 5
+- [ ] `docs/ALCANCE.md` aprobado, con P0/P1/P2 y el acuerdo del corte
 - [ ] `prisma/schema.prisma` aprobado y aplicado con `db push`, tablas visibles en Supabase
 - [ ] `npm run dev` arranca y carga
 - [ ] URL pública en Vercel funcionando
@@ -141,8 +141,8 @@ Verifica y reporta con honestidad qué está y qué no:
 - [ ] `npm run check` pasa
 - [ ] Si el producto tiene usuarios: registro y login probados en la URL pública
 
-Termina diciendo: *"Mañana empezamos por [primer item de P0]. Invoca la skill
-builder-lab-dia cada mañana."*
+Termina diciendo: *"H1 cerrado. Mañana vamos a por H2, empezando por [primer item de
+P0]. Invoca la skill builder-lab-dia cada mañana."*
 
 ## Referencias — lee solo la que necesites
 

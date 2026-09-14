@@ -62,11 +62,11 @@ cementerio: es lo que hace que acepte el recorte.
 
 Si ves dos o más, vuelve al paso 2 y recorta otra vez. Es más barato ahora.
 
-## El acuerdo del día 5
+## El acuerdo del corte
 
 Antes de cerrar el `ALCANCE.md`, léele esto y pide un sí explícito:
 
-> *"Si el viernes a las seis el P0 no está terminado, borramos todo el P2 y
-> seguimos solo con lo esencial. ¿De acuerdo?"*
+> *"Si al acabar el día 5 el P0 no está terminado, borramos todo el P2 y seguimos
+> solo con lo esencial. ¿De acuerdo?"*
 
-Ese sí de hoy es lo que salva el día 5. Anótalo en el documento con la fecha.
+Ese sí de hoy es lo que salva la semana. Anótalo en el documento con la fecha.

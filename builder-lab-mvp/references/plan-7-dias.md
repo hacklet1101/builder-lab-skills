@@ -1,18 +1,22 @@
-# Plan de 7 días — resumen
+# Los 7 días — resumen
 
-El detalle diario, los gates y el protocolo de pánico están en la skill
-**`builder-lab-dia`**, que se invoca cada mañana. Esto es solo el mapa para
-explicárselo a la persona el día 1.
+El detalle, los gates y el protocolo de corte están en la skill **`builder-lab-dia`**,
+que se invoca cada mañana. Esto es el mapa para explicárselo a la persona el día 1.
 
-| Día | Qué pasa | Al final del día existe |
-|---|---|---|
-| **1** | Entrevista, alcance, modelo de datos, scaffolding, **deploy vacío** | Una URL pública que carga, y `ALCANCE.md` aprobado |
-| **2** | Las pantallas del camino core, leyendo datos del seed | Puedes recorrer la acción core a mano, aunque sea feo |
-| **3** | Escritura real: crear y editar la entidad principal | Los datos persisten y siguen ahí al recargar |
-| **4** | Terminar el P0 completo | La acción core funciona de punta a punta en local |
-| **5** | P1: errores, estados vacíos, carga. **Corte de P2 si hace falta** | La app no se rompe si el usuario hace algo raro |
-| **6** | Pulido visual, móvil, auditoría de seguridad | Se ve bien en un móvil y no tiene agujeros graves |
-| **7** | Datos de demo, deploy final, guion y ensayo | Demo de 3 minutos ensayada sobre la URL pública |
+La promesa son 7 días. El trabajo se mide en **seis hitos**, cada uno con su día
+objetivo: quien va un día por detrás no ha fallado, está en el hito anterior y sabe
+exactamente qué le falta.
+
+| Hito | Qué significa | Día | Al cerrarlo existe |
+|---|---|---|---|
+| **H1 · Arranca** | Entrevista, alcance, modelo, scaffold, **deploy vacío** | 1 | Una URL pública que carga y un `ALCANCE.md` aprobado |
+| **H2 · Se entra y se ve** | Login y las pantallas del camino core con datos del seed | 2 | Entras con una cuenta nueva y recorres la acción core a mano |
+| **H3 · Se escribe** | El formulario que crea la entidad principal | 3 | Creas algo, recargas y sigue ahí |
+| **H4 · P0 completo** | La acción core entera | 4 | Alguien que no eres tú hace la acción core de principio a fin |
+| **H5 · No se rompe** | Errores, estados vacíos, carga. **Corte de P2 si hace falta** | 5 | La app aguanta que el usuario haga cosas raras |
+| **H6 · Presentable** | Móvil, seguridad, datos de demo, guion | 6-7 | Demo de 3 minutos ensayada sobre la URL pública |
+
+**H4 es el hito que decide si hay MVP.** Lo de después es acabado.
 
 ## Lo que cuesta más de lo que parece
 
@@ -33,8 +37,7 @@ Dilo el día 1, para que no sorprenda:
 - Una pantalla de lista con filtro: media hora.
 - El seed de datos: 15 minutos y salva la demo.
 
-## El día que se decide todo
+## El hito que decide todo
 
-El **día 4**. Si el día 4 por la noche el P0 no está cerca de estar completo, el día
-5 se recorta. Quien llega al día 5 con el P0 hecho, termina. Quien llega con el 60%
-y cinco cosas empezadas, no.
+**H4.** Si al acabar el día 4 el P0 no está cerca, el 5 se recorta. Quien llega al
+día 5 con H4 cerrado, termina. Quien llega con el 60% y cinco cosas empezadas, no.

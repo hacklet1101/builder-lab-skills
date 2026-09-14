@@ -44,9 +44,9 @@ Todo lo que salió en la conversación y no entra. No se pierde, se aplaza:
 
 {{TABLAS_EN_UNA_FRASE_CADA_UNA}}
 
-## Acuerdo del día 5
+## Acuerdo del corte
 
-> Si el día 5 a las 18:00 el P0 no está completo, se borra todo el P2 del repo y se
+> Si al acabar el día 5 el P0 no está completo, se borra todo el P2 del repo y se
 > sigue solo con lo esencial.
 
 Aceptado el {{FECHA}}.
@@ -54,5 +54,5 @@ Aceptado el {{FECHA}}.
 ## Estado
 
 - URL en producción: {{URL_VERCEL}}
-- Día actual: {{DIA}}
+- Hito actual: {{HITO}} (H1…H6)
 - Se retoma en: {{SIGUIENTE_PASO}}
