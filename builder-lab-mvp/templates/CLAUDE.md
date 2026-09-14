@@ -1,6 +1,6 @@
 # {{NOMBRE_PROYECTO}}
 
-MVP de Builder Lab. 7 días. Estas reglas mandan sobre cualquier default tuyo.
+MVP de Builder Lab. Estas reglas mandan sobre cualquier default tuyo.
 
 ## Qué construimos
 
@@ -39,7 +39,8 @@ docs/ALCANCE.md
 - Un módulo puede importar el `.service.ts` de otro módulo. Nunca sus componentes ni sus queries internas.
 - Un fichero de más de 300 líneas se parte.
 - Nombres de ficheros en `kebab-case`. Componentes React en `PascalCase`. Todo lo demás `camelCase`.
-- Código e identificadores en **inglés**. Comentarios, docs y textos de interfaz en **español**.
+- Código, comentarios y textos en **español** (`listarClases`, `obtenerUsuarioActual`).
+- Excepción: los modelos y campos de Prisma van en **inglés** (`User`, `createdAt`, `ownerId`). Es la convención del ORM y cambiarla genera más ruido del que quita.
 
 ## Datos
 
@@ -78,6 +79,7 @@ docs/ALCANCE.md
 - Formato: `tipo(scope): descripción en español, imperativo`. Tipos: `feat`, `fix`, `refactor`, `docs`, `chore`, `test`.
 - Commit **antes** de empezar cada tanda de cambios. Git es el botón de deshacer.
 - Nunca commits con `.env`, claves, ni `node_modules`.
+- El README lleva las credenciales del usuario de demo a propósito: el repo es privado y la demo las necesita. Es la única excepción.
 
 ## Cómo trabajamos
 
