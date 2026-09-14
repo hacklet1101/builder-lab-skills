@@ -11,9 +11,13 @@ construya lo que no necesita**.
 
 ## Regla de oro
 
-**Cero código hasta que exista `docs/ALCANCE.md` aprobado por la persona.**
+**Cero código del producto hasta que exista `docs/ALCANCE.md` aprobado.**
 
-Si te piden "empieza ya a programar", respondes que el día 1 se decide qué NO se
+El scaffolding no cuenta: es mecánico, idéntico en todos los proyectos y no decide
+nada. Lo que no se escribe antes del alcance es una pantalla, un modelo de datos
+propio o una función de negocio.
+
+Si te piden "empieza ya con la app", respondes que el día 1 se decide qué NO se
 construye, y que eso son 30 minutos que ahorran 3 días. Y sigues el flujo.
 
 ## El stack está decidido. No se debate.
@@ -34,6 +38,8 @@ preguntarle solo genera parálisis. Si insiste en otra cosa, lee
 `references/antipatrones.md` § "Cuando quieren cambiar el stack".
 
 ## Flujo — en este orden, sin saltarse pasos
+
+> entorno → entrevista → scaffold → alcance → modelo → deploy
 
 ### Paso 0 — Entorno (5 min)
 
@@ -58,9 +64,27 @@ Respuestas vagas ("una red social para X", "un marketplace") → repregunta hast
 tener un verbo concreto con un sujeto concreto: *"un entrenador crea una clase y
 sus alumnos reservan plaza"*.
 
-### Paso 2 — Alcance recortado (15 min)
+### Paso 2 — Scaffolding (20 min)
 
-Escribe `docs/ALCANCE.md` con la plantilla de `templates/ALCANCE.md`. Contiene:
+Va **antes** que el alcance a propósito: el scaffolding es mecánico, siempre igual,
+y no depende de qué haya decidido la persona. Así los pasos 3 y 4 se escriben sobre
+ficheros que ya existen (`docs/ALCANCE.md`, `prisma/schema.prisma`) en vez de crearlos
+a mano y hacer que `create-next-app` falle por encontrarse el directorio ocupado.
+
+Ejecuta `scripts/init-mvp.sh` desde el directorio donde va el proyecto.
+Crea la estructura, instala, copia `templates/CLAUDE.md` personalizado, configura
+Prisma y hace el primer commit.
+
+**No levantes servicios por tu cuenta.** El script imprime lo que hay que hacer en
+Supabase y espera confirmación.
+
+Después: comprueba que `npm run dev` arranca y que la página de inicio carga.
+No declares el paso terminado sin haberlo visto arrancar.
+
+### Paso 3 — Alcance recortado (15 min)
+
+Rellena `docs/ALCANCE.md` — el paso anterior ya lo ha dejado ahí con la plantilla.
+Sustituye los `{{PLACEHOLDERS}}`. Contiene:
 
 - La acción core en una frase.
 - **P0** — lo mínimo para que la acción core funcione de punta a punta. Máximo 5 items.
@@ -75,26 +99,18 @@ alguien que aprende son **3 pantallas y 2 tablas**, no 10 y 8.
 
 Enséñale el `ALCANCE.md` y pide aprobación explícita antes de seguir.
 
-### Paso 3 — Modelo de datos (20 min)
+### Paso 4 — Modelo de datos (20 min)
 
-Diseña el `schema.prisma` siguiendo `references/modelo-datos.md`.
+Edita el `prisma/schema.prisma` que ya ha creado el paso 2, siguiendo
+`references/modelo-datos.md`.
 Explícaselo **en español y sin jerga** antes de escribirlo:
 *"Vamos a guardar clases, y cada clase tiene muchas reservas, y cada reserva
 pertenece a un usuario."*
 
 Pide aprobación. Un modelo mal el día 1 se paga los días 4, 5 y 6.
 
-### Paso 4 — Scaffolding (20 min)
-
-Ejecuta `scripts/init-mvp.sh` desde el directorio donde va el proyecto.
-Crea la estructura, instala, copia `templates/CLAUDE.md` personalizado, configura
-Prisma y hace el primer commit.
-
-**No levantes servicios por tu cuenta.** El script imprime lo que hay que hacer en
-Supabase y espera confirmación.
-
-Después: comprueba que `npm run dev` arranca y que la página de inicio carga.
-No declares el paso terminado sin haberlo visto arrancar.
+Cuando esté aprobado: `npx prisma db push` y comprueba en el panel de Supabase que
+las tablas están. Si falla, es la cadena de conexión: ver `references/supabase.md`.
 
 ### Paso 5 — Deploy vacío en Coolify (30 min)
 
@@ -111,7 +127,7 @@ README y al `ALCANCE.md`.
 Verifica y reporta con honestidad qué está y qué no:
 
 - [ ] `docs/ALCANCE.md` aprobado, con P0/P1/P2 y la regla del día 5
-- [ ] `prisma/schema.prisma` aprobado y aplicado (`db push`)
+- [ ] `prisma/schema.prisma` aprobado y aplicado con `db push`, tablas visibles en Supabase
 - [ ] `npm run dev` arranca y carga
 - [ ] URL pública en Coolify funcionando
 - [ ] `.env` en `.gitignore`, `.env.example` sin valores reales
@@ -126,10 +142,10 @@ builder-lab-dia cada mañana."*
 
 | Fichero | Cuándo leerlo |
 |---|---|
-| `references/alcance.md` | Paso 2: qué recortar y cómo decir que no |
-| `references/modelo-datos.md` | Paso 3: convenciones de Prisma para MVP |
-| `references/estructura.md` | Paso 4: el árbol de carpetas y por qué |
-| `references/supabase.md` | Paso 4: configurar Supabase, auth, las dos URLs |
+| `references/alcance.md` | Paso 3: qué recortar y cómo decir que no |
+| `references/modelo-datos.md` | Paso 4: convenciones de Prisma para MVP |
+| `references/estructura.md` | Paso 2: el árbol de carpetas y por qué |
+| `references/supabase.md` | Pasos 2 y 4: configurar Supabase, auth, las dos URLs |
 | `references/deploy.md` | Paso 5: Coolify paso a paso y rollback |
 | `references/seguridad-mvp.md` | Antes de tocar ficheros, emails o datos personales |
 | `references/antipatrones.md` | Cuando pidan algo que huele a sobre-ingeniería |
@@ -158,7 +174,7 @@ Se ejecuta al cerrar cada día. Si falla, el día no está cerrado.
 
 ## Errores que cometerás si no vas con cuidado
 
-- Empezar a programar antes del `ALCANCE.md`. **Este es el error caro.**
+- Empezar a programar **el producto** antes del `ALCANCE.md`. Este es el error caro.
 - Aceptar "una app para gestionar mi negocio" como descripción de producto.
 - Diseñar 8 tablas porque la persona las ha mencionado. El MVP son 2-4.
 - Dejar el deploy para el final.

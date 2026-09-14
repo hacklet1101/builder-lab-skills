@@ -47,6 +47,21 @@ info "Creando el MVP «$NOMBRE» en $DESTINO"
 echo
 
 # ── 1. Proyecto Next.js ────────────────────────────────────────────────────
+# create-next-app aborta si el destino ya tiene ficheros suyos (CLAUDE.md, prisma/,
+# docs/…). Si alguien ya empezó a escribir ahí, los apartamos, creamos el proyecto
+# y los devolvemos encima: lo que escribió la persona manda sobre las plantillas.
+RESCATE=""
+RESCATADOS=""
+if [ ! -f "$DESTINO/package.json" ] && [ -d "$DESTINO" ]; then
+  for x in CLAUDE.md prisma docs README.md .env .env.example; do
+    [ -e "$DESTINO/$x" ] || continue
+    [ -n "$RESCATE" ] || RESCATE=$(mktemp -d)
+    mv "$DESTINO/$x" "$RESCATE/"
+    RESCATADOS="$RESCATADOS $x"
+  done
+  [ -n "$RESCATE" ] && info "Aparto lo que ya había en el destino para no perderlo"
+fi
+
 if [ -f "$DESTINO/package.json" ]; then
   skip "proyecto Next.js"
 else
@@ -55,6 +70,13 @@ else
     --typescript --tailwind --eslint --app --src-dir \
     --import-alias "@/*" --use-npm --disable-git --no-agents-md
   done_ "Next.js creado"
+fi
+
+if [ -n "$RESCATE" ]; then
+  # -n: si create-next-app creó un README propio, gana el de la persona
+  cp -Rf "$RESCATE"/. "$DESTINO"/
+  rm -rf "$RESCATE"
+  done_ "restaurado lo que ya habías escrito"
 fi
 
 cd "$DESTINO"
@@ -82,10 +104,9 @@ done_ "carpetas"
 copiar() {  # copiar <origen> <destino>
   if [ -f "$2" ]; then skip "$2"; else cp "$TEMPLATES/$1" "$2"; done_ "$2"; fi
 }
-pisar() {  # pisar <origen> <destino>: guarda el original y copia el nuestro
-  if [ -f "$2" ] && ! grep -q "Builder Lab\|{{NOMBRE_PROYECTO}}" "$2" 2>/dev/null; then
-    mv "$2" "$2.original"
-  fi
+pisar() {  # pisar <origen> <destino>: la plantilla sustituye a la de create-next-app
+  # Lo que ya habías escrito tú y rescatamos en el paso 1 no se toca.
+  case " $RESCATADOS " in *" $2 "*) skip "$2 (lo tuyo manda)"; return ;; esac
   cp "$TEMPLATES/$1" "$2"; done_ "$2"
 }
 info "Copiando plantillas"
@@ -126,7 +147,7 @@ if [ -f .env ]; then skip ".env"; else cp .env.example .env; done_ ".env creado 
 # globals.css se reemplaza entero: el de create-next-app trae colores hex de
 # ejemplo que contradicen la regla de tokens.
 if [ -f src/app/globals.css ] && ! grep -q "tokens.css" src/app/globals.css; then
-  mv src/app/globals.css src/app/globals.css.original
+  rm -f src/app/globals.css
 fi
 if [ ! -f src/app/globals.css ] || ! grep -q "tokens.css" src/app/globals.css; then
   cp "$TEMPLATES/globals.css" src/app/globals.css
@@ -141,7 +162,7 @@ for f in page.tsx layout.tsx; do
   if grep -q "{{NOMBRE_PROYECTO}}\|Builder Lab" "src/app/$f" 2>/dev/null; then
     skip "src/app/$f"
   else
-    [ -f "src/app/$f" ] && mv "src/app/$f" "src/app/$f.original"
+    rm -f "src/app/$f"
     cp "$TEMPLATES/$f" "src/app/$f"
     done_ "src/app/$f"
   fi
