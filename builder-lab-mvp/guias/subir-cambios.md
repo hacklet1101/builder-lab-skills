@@ -11,6 +11,33 @@ Explícaselo así:
 
 ---
 
+## Si tu proyecto todavía no está en GitHub
+
+*Sáltate esto si abriste el proyecto desde Codespaces: ya viene conectado.*
+
+Se nota en que `git push` responde *"No se ha configurado un destino para el empuje"*.
+Se arregla una sola vez:
+
+**1.** Necesitas la dirección de tu repositorio, la que copiaste al crearlo:
+`https://github.com/tu-usuario/tu-repo`
+
+**2.** Estos comandos los ejecuto yo:
+
+```bash
+git remote add origin https://github.com/tu-usuario/tu-repo.git
+git branch -M main
+git push -u origin main
+```
+
+**3.** Te pedirá autenticarte. Si tienes `gh` instalado ya está resuelto; si no, te
+pedirá usuario y un **token** (no tu contraseña: GitHub ya no las acepta).
+Si llega ese momento, dímelo y lo resolvemos con `gh auth login`, que es más fácil.
+
+✅ **Comprobación:** recarga la página de tu repositorio en GitHub. Deberías ver tus
+ficheros ahí.
+
+---
+
 ## Los comandos
 
 Se escriben en la terminal, uno detrás de otro. **Normalmente los ejecuto yo**, pero

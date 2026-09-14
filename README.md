@@ -16,6 +16,51 @@ Le dicen qué preguntarte, qué construir, qué **no** construir, y cuándo para
 
 ---
 
+## Empieza aquí (15 minutos, sin instalar nada)
+
+Estos cinco pasos los haces tú solo. A partir del quinto, Claude toma el mando y te
+va diciendo todo lo demás.
+
+**1. Crea una cuenta en [github.com](https://github.com)** si no la tienes.
+
+**2. Crea un repositorio para tu app.** Botón **+** arriba a la derecha → *New
+repository*. Ponle un nombre en minúsculas y con guiones (`reservas-gimnasio`), marca
+**Private**, y **no marques ninguna casilla más**. Pulsa *Create repository*.
+
+**3. Ábrelo en Codespaces.** En la página de tu repositorio: botón verde **Code** →
+pestaña **Codespaces** → *Create codespace on main*. Tarda un minuto y te abre un
+editor con una terminal abajo. **Esto es un ordenador de programar dentro de tu
+navegador: el tuyo no tiene que instalar nada.**
+
+**4. Pega esto en la terminal** (los tres comandos, uno detrás de otro):
+
+```bash
+npm install -g @anthropic-ai/claude-code
+git clone https://github.com/hacklet1101/builder-lab-skills.git ~/builder-lab-skills
+bash ~/builder-lab-skills/install.sh
+```
+
+**5. Arranca Claude y pídele empezar:**
+
+```bash
+claude
+```
+
+Y cuando responda, escríbele:
+
+> **quiero arrancar el MVP de mi app**
+
+Ya está. Te hará unas preguntas sobre lo que quieres construir y te irá guiando paso
+a paso: qué cuentas crear, qué pulsar y qué pegar. No tienes que saber nada de esto
+de antemano.
+
+> **¿Prefieres trabajar en tu propio ordenador?** Puedes: necesitas Node 20+, git y
+> Claude Code instalados (en Windows, dentro de WSL2). Sáltate el paso 3, clona tu
+> repositorio y ejecuta los comandos del paso 4 en tu terminal. El detalle está en
+> `builder-lab-mvp/guias/local.md`.
+
+---
+
 ## Qué vas a tener al final
 
 Una aplicación web real, con su dirección en internet, que cualquiera puede abrir:
@@ -68,7 +113,7 @@ usar la terminal.
 
 ---
 
-## Instalación
+## Instalación (si te la saltaste arriba)
 
 ```bash
 git clone https://github.com/hacklet1101/builder-lab-skills.git ~/builder-lab-skills
@@ -77,6 +122,9 @@ bash ~/builder-lab-skills/install.sh
 
 Crea enlaces en `~/.claude/skills/`. Para actualizar más adelante: `git pull` dentro
 de esa carpeta. No hay que reinstalar nada.
+
+Comprueba que ha funcionado pidiéndole a Claude *"quiero arrancar el MVP de mi app"*:
+si empieza a preguntarte por tu producto en vez de ponerse a programar, está listo.
 
 ### Comprueba que tu equipo está listo
 

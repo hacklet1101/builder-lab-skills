@@ -44,22 +44,36 @@ npm install -g @anthropic-ai/claude-code
 
 **2.** Dale a Enter y espera. Tarda un minuto y salen muchas líneas: es normal.
 
-**3.** Ahora escribe:
+**3.** Ahora instala los skills de Builder Lab, que son las instrucciones que hacen
+que Claude sepa guiarte:
+
+```bash
+git clone https://github.com/hacklet1101/builder-lab-skills.git ~/builder-lab-skills
+bash ~/builder-lab-skills/install.sh
+```
+
+**4.** Arranca Claude:
 
 ```bash
 claude
 ```
 
-**4.** Te pedirá iniciar sesión. Sigue lo que te diga en pantalla: te dará un enlace,
+**5.** Te pedirá iniciar sesión. Sigue lo que te diga en pantalla: te dará un enlace,
 lo abres, aceptas, y vuelves.
 
-✅ **Comprobación:** Claude te saluda dentro de la terminal y puedes escribirle.
+✅ **Comprobación:** escríbele *"quiero arrancar el MVP de mi app"*. Si te empieza a
+hacer preguntas sobre tu producto, todo está en su sitio.
+
+→ *Si no reacciona y se pone a programar sin preguntar nada*, los skills no se han
+instalado. Repite el paso 3 y vuelve a arrancar `claude`.
 
 ---
 
 ## Cosas que conviene saber
 
 - **Se guarda solo.** Puedes cerrar la pestaña: al volver, tu trabajo sigue ahí.
+- **Si creas un codespace nuevo** (no el mismo), hay que repetir la instalación de
+  Claude Code y de los skills: son de la máquina, no del repositorio.
 - **Se apaga solo** si lo dejas quieto un rato. Volver a abrirlo tarda unos segundos.
 - **Para volver más adelante:** github.com/codespaces, o desde tu repositorio con el
   mismo botón **Code → Codespaces**, donde ahora aparecerá el que ya tienes.

@@ -86,25 +86,31 @@ todos de golpe.
 
 > entorno → entrevista → scaffold → alcance → modelo → deploy
 
-### Paso 0 — H0 · Preparado (5 min si viene hecho)
+### Paso 0 — H0 · Preparado
 
-Ejecuta `scripts/check-entorno.sh`. Te dice **dónde** se está trabajando —el
-ordenador de la persona o un espacio en la nube— y qué falta.
+**Si estás leyendo esto, GitHub y el sitio de trabajo ya existen.** No podrías
+ejecutarte de otra forma: el `README` del kit lleva a la persona hasta aquí. Lo que
+sí puede faltar —y lo guías tú entero— es Supabase.
 
-Si falta algo, **se lo enseñas tú**, dictando la guía que toque. No le mandes a
-buscarlo por su cuenta:
+**1. Comprueba el terreno:** ejecuta `scripts/check-entorno.sh`. Te dice dónde se
+está trabajando (el ordenador de la persona o un espacio en la nube) y qué falta.
 
-1. **GitHub** (cuenta + repositorio privado) → `guias/github.md`
-2. **Dónde va a trabajar:**
-   - ordenador lento, viejo, o desde el móvil → `guias/codespaces.md`
-   - ordenador que va bien → `guias/local.md`
-3. **Supabase** (proyecto + las dos cadenas de conexión) → `guias/supabase.md`
+**2. Supabase**, si no está: dicta `guias/supabase.md` paso a paso. Al terminar
+tienes que tener **cuatro datos** apuntados:
 
-**Ofrece Codespaces tú, antes de que pregunte.** Mucha gente no sabe que existe y
-asume que necesita instalar cosas.
+- la cadena de conexión con `:6543`
+- la cadena de conexión con `:5432`
+- la Project URL
+- la clave anon
 
-El resumen de por qué cada pieza está en `references/preparacion.md`. Vercel todavía
-no: va en el paso 5, cuando ya hay código que publicar.
+Sin esas cuatro cosas no sigas: el paso 4 no puede funcionar.
+
+**3. Si algo del entorno falla** —git sin configurar, Node viejo, sin acceso a
+GitHub— arréglalo ahora con `guias/local.md` o `guias/codespaces.md` según dónde
+esté. No empieces con el entorno a medias.
+
+El porqué de cada pieza está en `references/preparacion.md`. Vercel va en el paso 5,
+cuando ya hay algo que publicar.
 
 ### Paso 1 — Entrevista (20 min)
 
@@ -128,12 +134,27 @@ y no depende de qué haya decidido la persona. Así los pasos 3 y 4 se escriben 
 ficheros que ya existen (`docs/ALCANCE.md`, `prisma/schema.prisma`) en vez de crearlos
 a mano y hacer que `create-next-app` falle por encontrarse el directorio ocupado.
 
-Ejecuta `scripts/init-mvp.sh` desde el directorio donde va el proyecto.
-Crea la estructura, instala, copia `templates/CLAUDE.md` personalizado, configura
-Prisma y hace el primer commit.
+```bash
+bash <ruta-del-skill>/scripts/init-mvp.sh <nombre-proyecto> <directorio>
+```
 
-**No levantes servicios por tu cuenta.** El script imprime lo que hay que hacer en
-Supabase y espera confirmación.
+**Dónde se ejecuta importa:**
+
+- **En Codespaces**, el repositorio ya está clonado y es tu directorio actual: pasa
+  `.` como directorio. El script detecta que hay un `.git` y trabaja encima sin
+  romper nada.
+- **En local**, si el repositorio está clonado, lo mismo. Si no, pasa la ruta donde
+  quieras el proyecto.
+
+Crea la estructura, instala dependencias, copia `templates/CLAUDE.md` personalizado,
+configura Prisma y hace el primer commit.
+
+**Rellena el `.env` inmediatamente después.** El script lo crea con valores de
+ejemplo; tú pones ahí los cuatro datos de Supabase del paso 0. Es el fallo de flujo
+más fácil de cometer: si lo dejas para luego, el paso 4 falla y nadie sabe por qué.
+
+**No levantes servicios por tu cuenta.** El script no arranca nada; solo crea
+ficheros.
 
 El scaffold incluye **login y registro funcionando** (`src/lib/auth.ts`,
 `src/proxy.ts` y `src/app/(auth)/login`). Si en la entrevista quedó claro que el
@@ -159,7 +180,7 @@ Sustituye los `{{PLACEHOLDERS}}`. Contiene:
 - **El corte:** cuando se hayan gastado dos tercios del tiempo, si el P0 no está
   completo se borra todo el P2 del repo y se sigue. Se acepta AHORA, no entonces.
 
-Lee `references/alcance.md` para saber qué recortar. Sé duro: un MVP de 7 días de
+Lee `references/alcance.md` para saber qué recortar. Sé duro: el primer MVP de
 alguien que aprende son **3 pantallas y 2 tablas**, no 10 y 8.
 
 Enséñale el `ALCANCE.md` y pide aprobación explícita antes de seguir.
@@ -179,8 +200,13 @@ las tablas están. Si falla, es la cadena de conexión: ver `references/supabase
 
 ### Paso 5 — H2 · Publicado (20 min)
 
-**Ahora, con la app vacía.** Dicta `guias/subir-cambios.md` (para subir el código a
-GitHub) y después `guias/vercel.md` paso a paso.
+**Ahora, con la app vacía.**
+
+1. Comprueba que el repositorio tiene remoto: `git remote -v`. Si está vacío, el
+   proyecto no está conectado a GitHub todavía — lo resuelve
+   `guias/subir-cambios.md` § "Si tu proyecto todavía no está en GitHub".
+2. Dicta `guias/subir-cambios.md` para subir el código.
+3. Dicta `guias/vercel.md` paso a paso.
 
 `references/deploy.md` es tu chuleta técnica: qué mirar cuando falla y cómo hacer
 rollback. La guía es lo que dictas; la referencia, lo que consultas.

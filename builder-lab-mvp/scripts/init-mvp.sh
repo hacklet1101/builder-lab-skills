@@ -23,6 +23,7 @@ case "$NOMBRE" in
     exit 1 ;;
 esac
 DESTINO="${2:-$(pwd)/$NOMBRE}"
+SIN_COMMIT=0
 
 info() { printf '\033[36m▸\033[0m %s\n' "$1"; }
 skip() { printf '  \033[90m· %s (ya existe, se salta)\033[0m\n' "$1"; }
@@ -55,6 +56,11 @@ RESCATADOS=""
 if [ ! -f "$DESTINO/package.json" ] && [ -d "$DESTINO" ]; then
   for x in CLAUDE.md prisma docs README.md .env .env.example; do
     [ -e "$DESTINO/$x" ] || continue
+    # El README que crea GitHub es una línea con el nombre del repo: no es
+    # "lo que ya habías escrito", así que no cuenta como tuyo.
+    if [ "$x" = "README.md" ] && [ "$(wc -l < "$DESTINO/$x" 2>/dev/null || echo 9)" -le 3 ]; then
+      rm -f "$DESTINO/$x"; continue
+    fi
     [ -n "$RESCATE" ] || RESCATE=$(mktemp -d)
     mv "$DESTINO/$x" "$RESCATE/"
     RESCATADOS="$RESCATADOS $x"
@@ -216,11 +222,23 @@ fi
 [ -d .git ] || git init -q
 if [ -z "$(git status --porcelain)" ] && git rev-parse HEAD >/dev/null 2>&1; then
   skip "nada nuevo que commitear"
+elif ! git config user.email >/dev/null 2>&1 && ! git config --global user.email >/dev/null 2>&1; then
+  # Sin identidad, `git commit` aborta con un error críptico. No matamos el
+  # script por esto: el proyecto ya está creado y solo falta un comando.
+  printf '  \033[33m!\033[0m git todavía no sabe quién eres, así que no he podido guardar.\n'
+  printf '     Ejecuta estas dos líneas y avísame:\n'
+  printf '       git config --global user.name "Tu Nombre"\n'
+  printf '       git config --global user.email "tu@email.com"\n'
+  SIN_COMMIT=1
 else
   info "Commit"
   git add -A
-  git commit -qm "chore: arranque del MVP con builder-lab-mvp"
-  done_ "commit hecho"
+  if git commit -qm "chore: arranque del MVP con builder-lab-mvp"; then
+    done_ "commit hecho"
+  else
+    printf '  \033[33m!\033[0m no se ha podido guardar en git; el proyecto está creado igualmente\n'
+    SIN_COMMIT=1
+  fi
 fi
 
 # red de seguridad: .env nunca en git
@@ -236,15 +254,18 @@ cat <<FIN
 ────────────────────────────────────────────────────────────
 Proyecto creado en $DESTINO
 
-Falta esto, y lo tienes que hacer tú (no lo hace el script):
+Lo que falta, por orden:
 
-  0. Si tu app NO tiene usuarios: borra src/proxy.ts y src/app/(auth)
-  1. Crear el proyecto en supabase.com y guardar la contraseña de la BD
-  2. Copiar DATABASE_URL, DIRECT_URL, NEXT_PUBLIC_SUPABASE_URL y
-     NEXT_PUBLIC_SUPABASE_ANON_KEY al fichero .env
-  3. npx prisma db push        (crea las tablas)
-  4. npm run dev               (comprobar que arranca)
-  5. Subir el repo a GitHub (privado) e importarlo en vercel.com — AHORA, no al final
+  1. Rellenar .env con los datos reales de Supabase — el fichero está creado
+     pero con valores de ejemplo. Son cuatro: DATABASE_URL (:6543),
+     DIRECT_URL (:5432), NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY
+  2. npx prisma db push          (crea las tablas en Supabase)
+  3. Si tu app NO tiene usuarios: borrar src/proxy.ts y src/app/(auth)
+  4. Subir a GitHub e importar el repo en vercel.com — AHORA, no al final
 
+La app se mira en su dirección de Vercel. No hace falta arrancar nada aquí.
 ────────────────────────────────────────────────────────────
 FIN
+if [ "$SIN_COMMIT" = "1" ]; then
+  printf '\033[33m!\033[0m  Recuerda: configura git y guarda el trabajo antes de seguir.\n\n'
+fi
