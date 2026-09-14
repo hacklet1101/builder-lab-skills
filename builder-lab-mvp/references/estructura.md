@@ -34,7 +34,6 @@ mi-app/
       db.ts                    cliente Prisma singleton
       auth.ts                  sesión y usuario actual
       env.ts                   valida process.env con zod
-      errors.ts                errores de negocio
     components/ui/             Button, Input, Card... sin lógica de negocio
     styles/
       tokens.css               bloque @theme de Tailwind 4: colores y espaciados

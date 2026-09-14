@@ -58,8 +58,8 @@ bash test-skill.sh
 ```
 
 Crea un proyecto en un temporal, compila, comprueba tipos y valida las reglas. El
-ecosistema cambia debajo: la primera vez que se ejecutó encontró cuatro roturas que
-leer los repos no habría encontrado (ver `AUDIT.md`).
+ecosistema cambia debajo —versiones de Next, de Prisma, de Tailwind— y este comando
+es lo que avisa antes de que se entere un alumno.
 
 La pieza más importante es `builder-lab-mvp/templates/CLAUDE.md`: es lo que se copia
 al proyecto del alumno y lo que Claude Code lee en **cada** sesión durante los 7 días.
