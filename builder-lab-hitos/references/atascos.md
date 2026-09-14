@@ -71,12 +71,12 @@ Pasa, sobre todo por la tarde. Cómo estirarla:
 - Pide cosas concretas. "Arregla el error X en el fichero Y" gasta mucho menos que
   "revisa la app".
 - No le pidas que lea la base de código entera para algo que sabes dónde está.
-- Si se acaba: commitea, escribe en dos líneas dónde te quedaste, y sigue mañana.
-  No improvises a mano sobre código que no entiendes.
+- Si se acaba: commitea, escribe en dos líneas dónde te quedaste, y sigue cuando se
+  renueve. No improvises a mano sobre código que no entiendes.
 
 ## Cuando no da tiempo
 
-No es una emergencia, es el plan. Ve al protocolo del día 5 en el `SKILL.md`:
+No es una emergencia, es el plan. Ve al protocolo de corte en el `SKILL.md`:
 se borra el P2, se recorta el P1, se entrega el P0 funcionando.
 
 Un MVP que hace una cosa bien se presenta con la cabeza alta. Cinco a medias, no.

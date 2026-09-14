@@ -9,7 +9,7 @@ Le dicen qué preguntarte, qué construir, qué **no** construir, y cuándo para
 | Skill | Cuándo se usa |
 |---|---|
 | **`builder-lab-mvp`** | El día 1. Entrevista, recorta el alcance, diseña el modelo de datos y monta el proyecto entero |
-| **`builder-lab-dia`** | Los días 2 a 7. Abre el día, elige qué toca, cierra el día con el trabajo desplegado |
+| **`builder-lab-hitos`** | Los días 2 a 7. Abre el día, elige qué toca, cierra el día con el trabajo desplegado |
 
 ---
 
@@ -190,11 +190,11 @@ proyecto crezca, la lógica se mueve entera sin reescribirla.
 
 | Situación | Dónde mirar |
 |---|---|
-| Llevas 3 intentos con el mismo error | `builder-lab-dia/references/atascos.md` |
+| Llevas 3 intentos con el mismo error | `builder-lab-hitos/references/atascos.md` |
 | Claude repite lo mismo una y otra vez | Para, `/clear`, y vuelve con el error exacto pegado |
 | El deploy falla en Vercel | `builder-lab-mvp/references/deploy.md`, sección "Cuando el deploy falla" |
 | Producción está rota | Vercel → Deployments → el último que funcionaba → Promote to Production |
-| No te va a dar tiempo | No es una emergencia, es el plan: el corte de alcance está en `builder-lab-dia/SKILL.md` |
+| No te va a dar tiempo | No es una emergencia, es el plan: el corte de alcance está en `builder-lab-hitos/SKILL.md` |
 | Se te ha subido una clave a git | `builder-lab-mvp/references/seguridad-mvp.md`. **Primero rotar, después limpiar git** |
 
 ---
@@ -222,7 +222,7 @@ builder-lab-mvp/
   templates/            CLAUDE.md, ALCANCE.md, schema.prisma, auth, proxy, login,
                         tokens, seed, env, db…
   scripts/              check-entorno.sh, init-mvp.sh, check-reglas.sh
-builder-lab-dia/
+builder-lab-hitos/
   SKILL.md              el ritual diario y el protocolo de corte
   references/           los seis hitos, atascos, demo
 test-skill.sh           prueba el kit de punta a punta

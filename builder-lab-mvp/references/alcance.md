@@ -1,11 +1,11 @@
 # Recortar el alcance
 
-Tu trabajo en el paso 2 no es apuntar lo que quiere. Es **quitarle cosas sin que se
+Tu trabajo aquí no es apuntar lo que quiere. Es **quitarle cosas sin que se
 desanime**. Esto se hace con una regla, no con opiniones.
 
 ## La regla del camino único
 
-Un MVP de 7 días de alguien que está aprendiendo es:
+Un primer MVP de alguien que está aprendiendo es:
 
 - **1 camino** de punta a punta (entrar → hacer la acción core → verla hecha)
 - **2-4 tablas**
@@ -34,7 +34,7 @@ Coge cada cosa que ha mencionado y pásala por estas preguntas, en orden:
 | Notificaciones push / tiempo real | Fuera. Recargar la página es suficiente. |
 | Buscador con filtros | Un `input` que filtra por nombre. Nada más. |
 | Subida de imágenes | Solo si la acción core la necesita. Si no, una URL en un campo de texto. |
-| Emails automáticos | Uno solo, con Resend, y el día 5. Si no es core, ninguno. |
+| Emails automáticos | Uno solo, con Resend, y tarde. Si no es core, ninguno. |
 | Estadísticas / dashboard | Tres números contados con `count()`. Sin gráficos. |
 | Exportar a PDF / Excel | Fuera siempre. |
 | Modo oscuro, animaciones, onboarding | P2. Es decir: probablemente nunca. |
@@ -45,9 +45,9 @@ Coge cada cosa que ha mencionado y pásala por estas preguntas, en orden:
 
 No digas "eso es demasiado". Di **dónde va**:
 
-> *"Eso va en 'Después del MVP' — lo apunto ahora mismo para que no se pierda. El
-> día 7 queremos enseñar que [acción core] funciona de verdad; si metemos esto,
-> llegamos al día 7 con dos cosas a medias en vez de una entera."*
+> *"Eso va en 'Después del MVP' — lo apunto ahora mismo para que no se pierda. Lo
+> que queremos enseñar es que [acción core] funciona de verdad; si metemos esto,
+> acabas con dos cosas a medias en vez de una entera."*
 
 Y apúntalo **literalmente** en `ALCANCE.md`. La lista de "Después del MVP" no es un
 cementerio: es lo que hace que acepte el recorte.
@@ -66,7 +66,10 @@ Si ves dos o más, vuelve al paso 2 y recorta otra vez. Es más barato ahora.
 
 Antes de cerrar el `ALCANCE.md`, léele esto y pide un sí explícito:
 
-> *"Si al acabar el día 5 el P0 no está terminado, borramos todo el P2 y seguimos
-> solo con lo esencial. ¿De acuerdo?"*
+> *"Cuando hayas gastado dos tercios de tu tiempo, si la acción core no funciona
+> entera, borramos todo el P2 y seguimos solo con lo esencial. ¿De acuerdo?"*
 
-Ese sí de hoy es lo que salva la semana. Anótalo en el documento con la fecha.
+Ese sí de ahora es lo que salva el proyecto. Anótalo en el documento con la fecha.
+
+Dos tercios y no una fecha concreta: hay quien hace esto en tres días y quien lo hace
+en dos semanas. La proporción funciona en los dos casos.

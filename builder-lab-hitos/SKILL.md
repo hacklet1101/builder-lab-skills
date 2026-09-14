@@ -1,5 +1,5 @@
 ---
-name: builder-lab-dia
+name: builder-lab-hitos
 description: Ritual diario de Builder Lab para los días 2 a 7 de un MVP de 7 días. Úsala cuando alguien diga "empezamos el día 3", "qué toca hoy", "sigo con el MVP", "voy tarde", "no me va a dar tiempo", "hay que desplegar", "preparar la demo", o retome un proyecto que tiene docs/ALCANCE.md. Abre el día, elige la siguiente tarea del P0, cierra el día con deploy y checklist. No la uses para arrancar un proyecto nuevo: para eso está builder-lab-mvp.
 ---
 
@@ -45,7 +45,7 @@ el 4, y sabe exactamente qué le falta.
 **Al abrir el día, di en qué hito estás.** No "es el día 4", sino "estamos en H3 y hoy
 cerramos H4". Es la diferencia entre ir con retraso y no saber dónde estás.
 
-Detalle de cada hito en `references/plan-7-dias.md`.
+Detalle de cada hito en `references/hitos.md`.
 
 ## Al cerrar el día (15 min, obligatorio)
 
@@ -85,7 +85,7 @@ Un MVP con una sola cosa que funciona bien es un MVP. Cinco cosas a medias no lo
 
 | Fichero | Cuándo |
 |---|---|
-| `references/plan-7-dias.md` | Detalle de cada día y sus gates |
+| `references/hitos.md` | Detalle de cada día y sus gates |
 | `references/atascos.md` | 3 intentos fallidos, bucles, deploy roto, rollback |
 | `references/demo.md` | Día 7: datos de demo, guion de 3 minutos, ensayo |
 

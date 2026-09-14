@@ -1,4 +1,4 @@
-# Día 7 — la demo
+# La demo
 
 Un MVP que funciona y no se sabe presentar se percibe como un fracaso. La demo no es
 el adorno: es el entregable.
@@ -13,8 +13,8 @@ La demo se hace con el seed, no con lo que quedó de las pruebas.
   5-8 elementos.
 - Un usuario de demo con contraseña que funciona, **apuntada en el README**.
 
-Comprueba que `npm run seed` se puede ejecutar en producción o que los datos ya están
-ahí. Comprobado hoy, no el lunes.
+Comprueba que los datos de demo están **en la base de datos que usa la URL pública**,
+no solo en la tuya. Comprobado hoy, no cinco minutos antes de presentar.
 
 ## El guion de 3 minutos
 
@@ -47,7 +47,7 @@ ahí. Comprobado hoy, no el lunes.
 - Si algo falla en vivo: lo dices con naturalidad, sigues con lo siguiente, y te lo
   apuntas. Nadie recuerda el fallo; recuerdan si te bloqueaste.
 - **Plan B:** una grabación de pantalla del camino core hecha hoy. Si internet falla,
-  la pones. Que exista aunque no se use.
+  la pones. Que exista aunque no se use. Desde el móvil se graba en 30 segundos.
 
 ## Checklist final
 
@@ -66,7 +66,7 @@ ahí. Comprobado hoy, no el lunes.
 
 Dos cosas, hoy mismo, mientras está fresco:
 
-1. Anota en `ALCANCE.md` qué te preguntaron y qué falló. Eso es la lista de tareas de
-   la semana que viene.
+1. Anota en `ALCANCE.md` qué te preguntaron y qué falló. Esa es tu lista de tareas
+   siguiente.
 2. El proyecto de Supabase del plan gratis se pausa tras unos días sin uso. Si quieres
-   enseñarlo a alguien más adelante, entra cada pocos días o súbelo de plan.
+   enseñarlo más adelante, entra cada pocos días o súbelo de plan.

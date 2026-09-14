@@ -1,6 +1,6 @@
 # Los 7 días — resumen
 
-El detalle, los gates y el protocolo de corte están en la skill **`builder-lab-dia`**,
+El detalle, los gates y el protocolo de corte están en la skill **`builder-lab-hitos`**,
 que se invoca cada mañana. Esto es el mapa para explicárselo a la persona el día 1.
 
 La promesa son 7 días. El trabajo se mide en **seis hitos**, cada uno con su día

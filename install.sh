@@ -13,7 +13,7 @@ DESTINO="$HOME/.claude/skills"
 
 mkdir -p "$DESTINO"
 
-for skill in builder-lab-mvp builder-lab-dia; do
+for skill in builder-lab-mvp builder-lab-hitos; do
   ruta="$DESTINO/$skill"
   if [ -L "$ruta" ]; then
     rm "$ruta"

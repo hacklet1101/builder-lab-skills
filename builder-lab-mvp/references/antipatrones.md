@@ -1,7 +1,7 @@
-# Antipatrones — lo que NO se hace en 7 días
+# Antipatrones — lo que NO se hace en un MVP
 
 Casi todo lo de esta lista es **buena ingeniería** en un producto de dos años. Aquí
-mata el MVP porque consume los días que necesitas para que la acción core funcione.
+mata el MVP porque consume el tiempo que necesitas para que la acción core funcione.
 
 ## Arquitectura
 
@@ -48,10 +48,10 @@ mata el MVP porque consume los días que necesitas para que la acción core func
 
 - **Ramas y pull requests.** Es una persona. Commits pequeños a `main`.
 - **Refactorizar algo que funciona.** Si funciona, se deja. Se refactoriza después.
-- **Dejar el deploy para el final.** Deploy el día 1 y todos los días.
+- **Dejar el deploy para el final.** Se publica antes de escribir la primera pantalla, y después en cada cambio.
 - **Diseñar antes de que funcione.** Primero funciona feo, luego se pule.
-- **Meter auth el día 6.** Si el producto tiene usuarios, auth el día 1: añadirla
-  después obliga a reescribir cada query para filtrar por usuario.
+- **Dejar el login para el final.** Si el producto tiene usuarios, va al principio:
+  añadirlo después obliga a reescribir cada consulta para filtrar por usuario.
 
 ## Cuando quieren cambiar el stack
 
@@ -62,8 +62,8 @@ Respuesta:
 
 > *"El stack está cerrado para la formación: Next, Prisma, Supabase, Vercel. No
 > porque sea el único bueno, sino porque es el que podemos ayudarte a arreglar
-> cuando se rompa el jueves a las once de la noche. Cambiarlo te cuesta dos días de
-> los siete."*
+> cuando se rompa a las once de la noche. Cambiarlo te cuesta un tercio del tiempo
+> que tienes."*
 
 Y sigues. **No** abras un debate técnico: quien pregunta no tiene criterio para
 resolverlo y el debate consume la mañana.
@@ -106,4 +106,4 @@ modular multi-tenant y una plataforma financiera con backend propio— y funcion
 | Worktrees y lanes | Varias ramas `lane-*` en paralelo con protocolo de reservas de ruta |
 
 Si el alumno pregunta *"pero en proyectos de verdad se hace así"*: sí, en productos
-con años de vida y varias personas. Su MVP tiene 7 días y una persona.
+con años de vida y varias personas. Su MVP tiene una semana y una persona.

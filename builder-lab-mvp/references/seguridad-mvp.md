@@ -1,10 +1,10 @@
-# Seguridad en un MVP de 7 días
+# Seguridad en un MVP
 
 La prevención está en el `CLAUDE.md` del proyecto y se comprueba con
 `npm run check`. Esto es lo que ese gate **no** puede comprobar solo.
 
-El día 6 se pasa la checklist de auditoría del final de este documento. Esto es lo
-de antes.
+En el hito **H6 · Aguanta** se pasa la checklist del final de este documento. Esto es
+lo de antes.
 
 ## Lo único que hay que entender bien: autorización
 
@@ -86,15 +86,15 @@ Aunque sea una demo, en cuanto haya personas de verdad con sus datos:
 - Poder borrar una cuenta: un botón que borre en cascada. Es un `onDelete: Cascade`
   bien puesto y 10 líneas.
 
-## Lo que NO toca en 7 días
+## Lo que NO toca en un MVP
 
 Rate limiting propio (Supabase Auth ya lo trae), 2FA, cabeceras CSP finas, auditoría
 de accesos, cifrado en la aplicación, pentesting. Nada de eso es lo que te va a
 romper: te va a romper una query sin filtrar por usuario.
 
-## Checklist de auditoría — día 6
+## Checklist de auditoría — hito H6
 
-Se pasa entera, en orden, el día 6. Cada punto se comprueba **mirando el código o
+Se pasa entera, en orden, antes de dar el MVP por presentable. Cada punto se comprueba **mirando el código o
 probándolo en el navegador**, no de memoria. Lo que salga mal se arregla hoy.
 
 ### 1. Autorización por recurso — lo más importante
@@ -128,7 +128,7 @@ probándolo en el navegador**, no de memoria. Lo que salga mal se arregla hoy.
       una en ventana de incógnito.
 - [ ] Se usa `getUser()`, nunca `getSession()`, para decidir si alguien puede ver algo.
 - [ ] Cerrar sesión funciona y después no se puede volver atrás y seguir viendo datos.
-- [ ] **"Confirm email" reactivado** en Supabase si se desactivó el día 1.
+- [ ] **"Confirm email" reactivado** en Supabase si se desactivó al principio.
 
 ### 5. RLS
 

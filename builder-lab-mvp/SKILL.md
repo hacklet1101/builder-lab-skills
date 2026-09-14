@@ -1,6 +1,6 @@
 ---
 name: builder-lab-mvp
-description: Kit de arranque de Builder Lab - día 1 de un MVP de 7 días. Úsala cuando alguien diga "arranca el proyecto", "empiezo mi app de", "quiero construir el MVP de", "builder lab", "kit de arranque", "monta la estructura del proyecto", o describa una app que quiere construir desde cero. Entrevista, recorta el alcance, diseña el modelo de datos y genera el proyecto (Next.js + Prisma + Supabase + Vercel). No la uses para los días 2-7: para eso está builder-lab-dia.
+description: Kit de arranque de Builder Lab - día 1 de un MVP de 7 días. Úsala cuando alguien diga "arranca el proyecto", "empiezo mi app de", "quiero construir el MVP de", "builder lab", "kit de arranque", "monta la estructura del proyecto", o describa una app que quiere construir desde cero. Entrevista, recorta el alcance, diseña el modelo de datos y genera el proyecto (Next.js + Prisma + Supabase + Vercel). No la uses para los días 2-7: para eso está builder-lab-hitos.
 ---
 
 # Builder Lab — arranque del MVP (día 1)
@@ -46,7 +46,7 @@ preguntarle solo genera parálisis. Si insiste en otra cosa, lee
 Ejecuta `scripts/check-entorno.sh`. Si falta algo, se arregla **antes** de seguir.
 No empieces el día 1 con el entorno roto: es la forma más común de perder la mañana.
 
-Si la persona llega sin cuentas creadas o sin Node, no improvises: `references/dia-0.md`
+Si la persona llega sin cuentas creadas o sin Node, no improvises: `references/preparacion.md`
 tiene la lista y el orden. Media hora ahí ahorra media mañana.
 
 ### Paso 1 — Entrevista (20 min)
@@ -142,7 +142,7 @@ Verifica y reporta con honestidad qué está y qué no:
 - [ ] Si el producto tiene usuarios: registro y login probados en la URL pública
 
 Termina diciendo: *"H1 cerrado. Mañana vamos a por H2, empezando por [primer item de
-P0]. Invoca la skill builder-lab-dia cada mañana."*
+P0]. Invoca la skill builder-lab-hitos cada mañana."*
 
 ## Referencias — lee solo la que necesites
 
@@ -155,8 +155,8 @@ P0]. Invoca la skill builder-lab-dia cada mañana."*
 | `references/deploy.md` | Paso 5: Vercel paso a paso y rollback |
 | `references/seguridad-mvp.md` | Antes de tocar ficheros, emails o datos personales |
 | `references/antipatrones.md` | Cuando pidan algo que huele a sobre-ingeniería |
-| `references/dia-0.md` | Si llega sin entorno o sin cuentas |
-| `references/plan-7-dias.md` | Para explicar qué viene después del día 1 |
+| `references/preparacion.md` | Si llega sin entorno o sin cuentas |
+| `references/hitos.md` | Para explicar qué viene después del día 1 |
 
 ## Plantillas
 
