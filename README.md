@@ -11,7 +11,7 @@ estructura y las convenciones de Builder Lab.
 ## Instalación
 
 ```bash
-git clone <url-del-repo> ~/builder-lab-skills
+git clone https://github.com/hacklet1101/builder-lab-skills.git ~/builder-lab-skills
 bash ~/builder-lab-skills/install.sh
 ```
 
