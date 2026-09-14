@@ -5,6 +5,10 @@ alguien llega sin ello, se cierra H0 primero y se empieza después.
 
 **Todo se hace desde el navegador.** No hace falta instalar nada en el ordenador.
 
+> **Esto es el resumen de por qué.** El paso a paso para dictar está en las guías:
+> `guias/github.md`, `guias/codespaces.md`, `guias/supabase.md` y `guias/local.md`.
+> No le leas este documento a la persona: léele la guía.
+
 ---
 
 ## Las tres cuentas (15 minutos)

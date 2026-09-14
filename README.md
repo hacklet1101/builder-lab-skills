@@ -91,6 +91,15 @@ arréglalo antes de empezar.
 
 ## Cómo se usa
 
+### No hace falta saber nada de esto
+
+El skill **enseña**. Si nunca has creado un repositorio, ni sabes qué es una cadena de
+conexión, ni has publicado una web, da igual: te lo dicta paso a paso, uno cada vez,
+comprobando contigo que lo que ves en pantalla es lo que debería salir.
+
+Lo primero que te preguntará es si has usado GitHub alguna vez. Si dices que no, va
+despacio. Si dices que sí, va al grano.
+
 ### Para arrancar
 
 Abre Claude Code donde vayas a trabajar y escribe algo como:
@@ -219,6 +228,8 @@ que se entere un alumno.
 ```
 builder-lab-mvp/
   SKILL.md              el flujo de arranque (H0, H1, H2)
+  guias/                manuales paso a paso, escritos para dictar al alumno:
+                        github, codespaces, supabase, vercel, subir-cambios, local
   references/           preparación, alcance, modelo de datos, estructura, supabase,
                         seguridad, deploy, antipatrones, hitos
   templates/            CLAUDE.md, ALCANCE.md, schema.prisma, auth, proxy, login,

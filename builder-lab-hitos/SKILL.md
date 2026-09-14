@@ -93,5 +93,16 @@ Un MVP con una sola cosa que funciona bien es un MVP. Cinco cosas a medias no lo
 | `references/atascos.md` | 3 intentos fallidos, bucles, publicación rota, rollback |
 | `references/demo.md` | H7: datos de demo, guion de 3 minutos, ensayo |
 
+Las guías paso a paso para dictar viven en la otra skill, y se pueden leer desde aquí:
+
+| Guía | Para qué |
+|---|---|
+| `~/.claude/skills/builder-lab-mvp/guias/subir-cambios.md` | Guardar y publicar los cambios |
+| `~/.claude/skills/builder-lab-mvp/guias/vercel.md` | Si hay que tocar algo del despliegue |
+| `~/.claude/skills/builder-lab-mvp/guias/supabase.md` | Si hay que tocar la base de datos o el login |
+
+**La primera vez que alguien tiene que guardar cambios, dicta la guía entera.** A
+partir de la tercera vez ya lo hace solo.
+
 Las convenciones de código, estructura y seguridad están en el `CLAUDE.md` del
 proyecto. No las repitas aquí: léelas de allí.

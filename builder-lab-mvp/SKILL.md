@@ -37,6 +37,51 @@ No preguntes por tecnología. La persona no tiene criterio para elegirla y
 preguntarle solo genera parálisis. Si insiste en otra cosa, lee
 `references/antipatrones.md` § "Cuando quieren cambiar el stack".
 
+## Cómo se enseña: un paso, esperar, comprobar
+
+La persona que tienes delante **no sabe hacer nada de esto**. No le sueltes una lista
+de diez pasos: se pierde en el tres y no te lo dice.
+
+Las **guías de `guias/`** están escritas para que las dictes. Reglas:
+
+1. **Un paso cada vez.** Lo dices, y esperas. No sigas hasta que confirme.
+2. **Di qué tiene que ver en pantalla**, no solo qué tiene que pulsar.
+   *"Arriba a la derecha hay un botón verde que pone New. ¿Lo ves?"*
+3. **Después de cada paso, una comprobación concreta.**
+   *"Ahora deberías ver una lista vacía que dice 'No projects yet'. ¿Es lo que ves?"*
+4. **Si lo que ve no coincide con lo que dices, no insistas: pregunta.**
+   *"Descríbeme qué ves y lo resolvemos"*. Estas webs cambian su diseño cada pocos
+   meses; la guía te dice **qué buscar**, no dónde está el píxel.
+5. **Nunca le pidas que decida algo técnico.** Si hay que elegir una región, un plan
+   o un nombre, eliges tú y se lo dices.
+6. **Los datos sensibles se pegan una vez.** Cuando te pase una contraseña o una
+   clave, la pones en su sitio y le dices que ya no hace falta que la vuelva a
+   escribir en el chat.
+
+Antes de empezar, pregunta una sola cosa:
+
+> *"¿Has usado GitHub alguna vez?"*
+
+- **No, o no me acuerdo** → modo guiado: dictas las guías paso a paso.
+- **Sí, me manejo** → modo rápido: le dices qué necesitas (el repo creado, las dos
+  cadenas de conexión) y te lo trae. Si se atasca, vuelves al modo guiado.
+
+No preguntes más de eso. Su nivel se nota solo en las dos primeras respuestas.
+
+## Las guías
+
+Manuales paso a paso, pensados para dictar. Abre el que toque **cuando toque**, no
+todos de golpe.
+
+| Guía | Para qué |
+|---|---|
+| `guias/github.md` | Crear la cuenta y el repositorio privado |
+| `guias/codespaces.md` | Abrir un espacio de trabajo en el navegador, sin instalar nada |
+| `guias/supabase.md` | Crear el proyecto y sacar las dos cadenas de conexión |
+| `guias/vercel.md` | Publicar la app y dejarla conectada al repositorio |
+| `guias/subir-cambios.md` | Guardar y publicar los cambios del día |
+| `guias/local.md` | Solo si trabaja en su propio ordenador |
+
 ## Flujo — en este orden, sin saltarse pasos
 
 > entorno → entrevista → scaffold → alcance → modelo → deploy
@@ -46,13 +91,20 @@ preguntarle solo genera parálisis. Si insiste en otra cosa, lee
 Ejecuta `scripts/check-entorno.sh`. Te dice **dónde** se está trabajando —el
 ordenador de la persona o un espacio en la nube— y qué falta.
 
-Si falta algo, se arregla **antes** de seguir. No improvises:
-`references/preparacion.md` tiene las tres cuentas, los dos caminos (nube o local) y
-el orden. Media hora ahí ahorra media jornada después.
+Si falta algo, **se lo enseñas tú**, dictando la guía que toque. No le mandes a
+buscarlo por su cuenta:
 
-**Nadie tiene que instalar nada obligatoriamente.** Si el ordenador va lento, es
-viejo o la persona trabaja desde el móvil, el camino es GitHub Codespaces: editor y
-terminal dentro del navegador. Ofrécelo tú antes de que pregunte.
+1. **GitHub** (cuenta + repositorio privado) → `guias/github.md`
+2. **Dónde va a trabajar:**
+   - ordenador lento, viejo, o desde el móvil → `guias/codespaces.md`
+   - ordenador que va bien → `guias/local.md`
+3. **Supabase** (proyecto + las dos cadenas de conexión) → `guias/supabase.md`
+
+**Ofrece Codespaces tú, antes de que pregunte.** Mucha gente no sabe que existe y
+asume que necesita instalar cosas.
+
+El resumen de por qué cada pieza está en `references/preparacion.md`. Vercel todavía
+no: va en el paso 5, cuando ya hay código que publicar.
 
 ### Paso 1 — Entrevista (20 min)
 
@@ -88,8 +140,11 @@ El scaffold incluye **login y registro funcionando** (`src/lib/auth.ts`,
 producto **no tiene usuarios**, borra `src/proxy.ts` y `src/app/(auth)` ahora: si no,
 toda ruta que no sea `/` redirigirá a un login que nadie necesita.
 
-Después: comprueba que `npm run dev` arranca y que la página de inicio carga.
-No declares el paso terminado sin haberlo visto arrancar.
+Después, comprueba que el proyecto compila: `npm run build`. No declares el paso
+terminado sin haberlo visto terminar bien.
+
+No hace falta arrancar `npm run dev`: la app se va a ver en su dirección pública en
+cuanto cierres el paso 5.
 
 ### Paso 3 — Alcance recortado (15 min)
 
@@ -124,7 +179,11 @@ las tablas están. Si falla, es la cadena de conexión: ver `references/supabase
 
 ### Paso 5 — H2 · Publicado (20 min)
 
-**Ahora, con la app vacía.** Sigue `references/deploy.md`.
+**Ahora, con la app vacía.** Dicta `guias/subir-cambios.md` (para subir el código a
+GitHub) y después `guias/vercel.md` paso a paso.
+
+`references/deploy.md` es tu chuleta técnica: qué mirar cuando falla y cómo hacer
+rollback. La guía es lo que dictas; la referencia, lo que consultas.
 
 Publicar por primera vez al final es la forma más habitual de no tener MVP. Ahora
 cuesta 20 minutos; al final puede costarte la demo.

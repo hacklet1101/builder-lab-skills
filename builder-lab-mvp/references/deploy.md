@@ -1,4 +1,7 @@
-# Deploy en Vercel
+# Deploy en Vercel — referencia técnica
+
+> **Para dictar paso a paso, usa `guias/vercel.md`.** Esto es la chuleta: lo que hay
+> que saber tú, y qué mirar cuando algo falla.
 
 **Se publica antes de escribir la primera pantalla, con la app vacía.** Publicar por
 primera vez al final es la causa número uno de terminar sin MVP.
