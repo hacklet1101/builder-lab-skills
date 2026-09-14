@@ -29,7 +29,7 @@ Lo que hace un usuario, de principio a fin:
 
 ## P2 — lo que lo hace bonito
 
-*Esto es lo primero que se borra el día 5.*
+*Esto es lo primero que se borra si hay que recortar.*
 
 - [ ] {{P2_1}}
 

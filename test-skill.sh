@@ -39,7 +39,7 @@ done
 grep -q "Builder Lab" CLAUDE.md && ok "CLAUDE.md es el del skill" \
   || err "CLAUDE.md NO es el del skill (¿lo ha pisado create-next-app?)"
 # {{NOMBRE_PROYECTO}} y {{FECHA}} los sustituye el script. El resto ({{ACCION_CORE}},
-# {{P0_1}}…) son huecos que rellena la entrevista del día 1: deben seguir ahí.
+# {{P0_1}}…) son huecos que rellena la entrevista de arranque: deben seguir ahí.
 if grep -rq "{{NOMBRE_PROYECTO}}\|{{FECHA}}" CLAUDE.md README.md docs/ALCANCE.md \
      prisma/schema.prisma src/app/page.tsx src/app/layout.tsx 2>/dev/null; then
   err "el script no ha sustituido {{NOMBRE_PROYECTO}} o {{FECHA}}"

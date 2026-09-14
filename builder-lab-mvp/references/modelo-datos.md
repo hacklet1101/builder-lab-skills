@@ -1,7 +1,7 @@
 # Modelo de datos para un MVP
 
-Un modelo mal el día 1 se paga los días 4, 5 y 6. Un modelo grande el día 1 se paga
-todos. Busca el más pequeño que soporte la acción core.
+Un modelo mal elegido al principio se paga en cada hito siguiente, y uno demasiado
+grande se paga en todos. Busca el más pequeño que soporte la acción core.
 
 ## Convenciones (van tal cual al `schema.prisma`)
 
@@ -125,6 +125,6 @@ Si esas frases están bien, el schema está bien. Entonces lo escribes.
 - Crear una tabla por cada sustantivo de la entrevista. Muchos son campos.
 - `Float` para dinero.
 - Guardar arrays de ids como texto separado por comas en vez de una relación.
-- Olvidar `@@unique` y descubrir el día 6 que hay reservas duplicadas.
+- Olvidar `@@unique` y descubrir el día de la demo que hay reservas duplicadas.
 - Una tabla `Settings` con 20 campos que nadie usa.
 - Poner `String` donde hay 3 valores posibles, en vez de un enum.

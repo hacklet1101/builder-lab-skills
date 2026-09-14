@@ -90,7 +90,7 @@ else
   # Prisma fijado a la major 6 a propósito:
   #   · el 'latest' del registro apunta a un RC de la 8 que rompe npm
   #   · la 7 saca las URLs del schema y exige driver adapters + prisma.config.ts,
-  #     más piezas de las que un MVP de 7 días puede permitirse
+  #     más piezas de las que un MVP puede permitirse
   npm_run install @prisma/client@6 prisma@6 zod @supabase/ssr @supabase/supabase-js server-only tsx
   done_ "dependencias instaladas"
 fi
@@ -158,7 +158,7 @@ else
 fi
 
 # La portada de create-next-app trae colores hex y fuentes propias: se reemplaza
-# por una limpia para que check-reglas.sh esté en verde desde el día 1.
+# por una limpia para que check-reglas.sh esté en verde desde el principio.
 for f in page.tsx layout.tsx; do
   if grep -q "{{NOMBRE_PROYECTO}}\|Builder Lab" "src/app/$f" 2>/dev/null; then
     skip "src/app/$f"
@@ -244,7 +244,7 @@ Falta esto, y lo tienes que hacer tú (no lo hace el script):
      NEXT_PUBLIC_SUPABASE_ANON_KEY al fichero .env
   3. npx prisma db push        (crea las tablas)
   4. npm run dev               (comprobar que arranca)
-  5. Subir el repo a GitHub (privado) e importarlo en vercel.com — HOY, día 1
+  5. Subir el repo a GitHub (privado) e importarlo en vercel.com — AHORA, no al final
 
 ────────────────────────────────────────────────────────────
 FIN
