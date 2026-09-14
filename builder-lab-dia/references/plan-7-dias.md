@@ -88,12 +88,14 @@ se recorta el P1 y se reescribe el `ALCANCE.md`. Se decidió el día 1.
 2. Tipografía, espaciados y colores desde los tokens. Cero hex sueltos
    (`npm run check`).
 3. Estados de foco y botones que se ven pulsados. Nada más de diseño.
-4. **Auditoría de seguridad:** invocar la skill `auditoria-seguridad`. Corregir
-   todo lo Crítico y Alto. Lo Medio, solo si da tiempo.
+4. **Auditoría de seguridad:** la checklist del día 6, al final de
+   `seguridad-mvp.md` (en la skill `builder-lab-mvp`). Se pasa entera. El punto 1,
+   autorización por recurso, se prueba con una segunda cuenta.
 5. Reactivar "Confirm email" en Supabase si se desactivó el día 1.
 
-**Gate:** `auditoria-seguridad` pasada sin hallazgos Críticos ni Altos abiertos, y la
-app usable en un móvil de verdad (el tuyo, no el simulador).
+**Gate:** checklist de seguridad pasada entera y sin nada grave abierto —en especial,
+una segunda cuenta no puede ver los datos de la primera—, y la app usable en un móvil
+de verdad (el tuyo, no el simulador).
 
 **Trampa del día 6:** rediseñarlo todo. Hoy se pule lo que hay, no se rehace.
 

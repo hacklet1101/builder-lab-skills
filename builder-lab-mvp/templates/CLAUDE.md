@@ -63,7 +63,7 @@ docs/ALCANCE.md
 - `.env` está en `.gitignore` desde el primer commit. `.env.example` no lleva valores reales.
 - Los errores que se devuelven al cliente no incluyen stack traces, SQL ni nombres de tabla.
 - Si una clave llega a subirse a git: **primero se rota** en su panel, después se limpia git. Borrar el commit no desactiva la clave.
-- Antes del deploy final se pasa la auditoría: invocar la skill `auditoria-seguridad`.
+- Antes del deploy final se pasa entera la checklist de auditoría del día 6.
 
 ## Estilos
 

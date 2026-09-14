@@ -3,7 +3,8 @@
 La prevención está en el `CLAUDE.md` del proyecto y se comprueba con
 `npm run check`. Esto es lo que ese gate **no** puede comprobar solo.
 
-El día 6 se pasa la skill `auditoria-seguridad` completa. Esto es lo de antes.
+El día 6 se pasa la checklist de auditoría del final de este documento. Esto es lo
+de antes.
 
 ## Lo único que hay que entender bien: autorización
 
@@ -90,3 +91,65 @@ Aunque sea una demo, en cuanto haya personas de verdad con sus datos:
 Rate limiting propio (Supabase Auth ya lo trae), 2FA, cabeceras CSP finas, auditoría
 de accesos, cifrado en la aplicación, pentesting. Nada de eso es lo que te va a
 romper: te va a romper una query sin filtrar por usuario.
+
+## Checklist de auditoría — día 6
+
+Se pasa entera, en orden, el día 6. Cada punto se comprueba **mirando el código o
+probándolo en el navegador**, no de memoria. Lo que salga mal se arregla hoy.
+
+### 1. Autorización por recurso — lo más importante
+
+- [ ] `npm run check` no avisa de ninguna query que busque solo por `id`.
+- [ ] Cada `findFirst` / `findUnique` / `update` / `delete` sobre datos de un usuario
+      lleva su id en el `where`.
+- [ ] Ese id sale de `getUsuarioActual()`, nunca del formulario, la URL o una cabecera.
+- [ ] **Probado a mano:** crea una segunda cuenta, copia la URL de un detalle de la
+      primera y ábrela con la segunda. Debe dar 404 o "no autorizado". Si ves el dato,
+      para todo y arréglalo.
+
+### 2. Secretos
+
+- [ ] `npm run check` no encuentra ficheros de entorno en git ni secretos con
+      `NEXT_PUBLIC_`.
+- [ ] La `service_role` de Supabase no está en el `.env` si no se usa.
+- [ ] Las variables de Vercel coinciden con las del `.env`, sin claves de más.
+- [ ] Ninguna clave se ha subido nunca a git. Si alguna se subió: **rótala**.
+
+### 3. Validación
+
+- [ ] Toda entrada del usuario pasa por un esquema zod **en el servidor**.
+- [ ] Los campos de texto tienen longitud máxima.
+- [ ] Los números tienen mínimo y máximo (una reserva de -5 plazas no existe).
+- [ ] Ningún `$queryRawUnsafe` ni `$executeRawUnsafe`.
+
+### 4. Sesión
+
+- [ ] Las páginas privadas redirigen a `/login` si no hay sesión. Probado abriendo
+      una en ventana de incógnito.
+- [ ] Se usa `getUser()`, nunca `getSession()`, para decidir si alguien puede ver algo.
+- [ ] Cerrar sesión funciona y después no se puede volver atrás y seguir viendo datos.
+- [ ] **"Confirm email" reactivado** en Supabase si se desactivó el día 1.
+
+### 5. RLS
+
+- [ ] RLS activado en todas las tablas del panel de Supabase.
+- [ ] Sabes que RLS no te cubre de tus propias queries: eso lo cubre el punto 1.
+
+### 6. Errores
+
+- [ ] Ningún mensaje al usuario incluye stack trace, SQL ni nombres de tabla.
+- [ ] Provoca un error a propósito (id inventado, formulario vacío) y mira qué se ve.
+
+### 7. Ficheros y emails — solo si el MVP los usa
+
+- [ ] Bucket privado, URL firmada, tipo y tamaño validados en servidor, nombre puesto
+      por ti.
+- [ ] El destinatario de cualquier email sale de la base de datos, no del formulario.
+
+### Cierre
+
+- [ ] `npm run check` en verde.
+- [ ] Los puntos marcados como problema están **arreglados**, no anotados.
+
+Lo que no dé tiempo a arreglar se escribe en `docs/ALCANCE.md` bajo "Después del MVP",
+con la palabra **seguridad** delante para que no se pierda.

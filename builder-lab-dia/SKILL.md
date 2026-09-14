@@ -35,7 +35,7 @@ Nunca empieces el día preguntando "¿qué quieres hacer hoy?". Lo dice el `ALCA
 | 3 | Escritura real: crear/editar la entidad principal | Los datos persisten y se ven tras recargar |
 | 4 | Terminar P0 + el resto del camino core | **P0 completo de punta a punta en local** |
 | 5 | P1: lo que hace la app usable (errores, vacíos, carga) | Un test e2e del camino core pasa |
-| 6 | Pulido visual, móvil, auditoría de seguridad | `auditoria-seguridad` pasada y hallazgos altos corregidos |
+| 6 | Pulido visual, móvil, auditoría de seguridad | Checklist de seguridad pasada entera, con lo grave corregido |
 | 7 | Datos de demo, deploy final, guion y ensayo | Demo de 3 min ensayada sobre la URL pública |
 
 Detalle de cada día en `references/plan-7-dias.md`.
