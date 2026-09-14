@@ -1,69 +1,117 @@
-# Día 0 — antes de empezar
+# H0 · Preparado — antes de escribir nada
 
-Media hora aquí ahorra media mañana el día 1. Si alguien llega sin esto, **no se
-empieza el día 1**: se hace el día 0 y se empieza después.
+Tres cuentas y un sitio donde trabajar. Nada de esto cuenta como parte del MVP: si
+alguien llega sin ello, se cierra H0 primero y se empieza después.
 
-## Programas
+**Todo se hace desde el navegador.** No hace falta instalar nada en el ordenador.
 
-| | Cómo | Comprobar |
+---
+
+## Las tres cuentas (15 minutos)
+
+Las tres son gratis y ninguna pide tarjeta.
+
+| | Dónde | Qué hay que hacer |
 |---|---|---|
-| Node 20 o superior | nodejs.org, versión LTS | `node -v` |
-| npm 10 o superior | viene con Node; si no, `npm install -g npm@latest` | `npm -v` |
-| git | git-scm.com | `git --version` |
-| Claude Code | claude.com/claude-code | `claude --version` |
-| Un editor | VS Code o el que sea | |
+| **GitHub** | github.com | Crear la cuenta. Aquí vive el código |
+| **Supabase** | supabase.com | Entrar **con GitHub**, crear un proyecto, **guardar la contraseña de la base de datos en un gestor de contraseñas** — no se puede recuperar |
+| **Vercel** | vercel.com | Entrar **con GitHub**, plan gratuito (Hobby). Así Vercel ve tus repositorios y publicar es un clic |
 
-Después: `bash builder-lab-mvp/scripts/check-entorno.sh`. Lo comprueba todo y dice
-exactamente qué falta.
+Entrar con GitHub en las tres no es un detalle: evita tres contraseñas más y hace que
+todo se conecte solo.
 
-## Git tiene que saber quién eres
+---
+
+## El sitio donde trabajar
+
+Aquí hay dos caminos. **Elige según tu ordenador, no según lo que sepas.**
+
+### Camino A — en la nube (recomendado)
+
+Para quien tenga un ordenador lento o antiguo, trabaje desde el móvil o
+simplemente no quiera instalar nada.
+
+**GitHub Codespaces** te da un ordenador de desarrollo dentro del navegador: editor,
+terminal y Node ya instalados. El plan gratuito de una cuenta personal incluye horas
+de sobra para un MVP (y se pausa solo cuando no lo usas).
+
+1. En GitHub, crea un repositorio **privado** vacío para tu app.
+2. En la página del repositorio: botón verde **Code** → pestaña **Codespaces** →
+   *Create codespace on main*.
+3. Tarda un minuto. Cuando abra, tienes una terminal abajo.
+4. Instala Claude Code dentro:
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   claude
+   ```
+5. A partir de ahí, todo el trabajo ocurre ahí dentro.
+
+Lo que se cierra, se guarda: el codespace conserva tus ficheros entre sesiones
+mientras no lo borres.
+
+> **Desde el móvil:** funciona en el navegador, pero escribir código en una pantalla
+> pequeña cansa. Sirve de sobra para revisar, pedirle cosas a Claude y mirar tu app
+> publicada; para una jornada larga, mejor una pantalla grande.
+
+### Camino B — en tu ordenador
+
+Si tienes un ordenador que va bien y prefieres trabajar en él.
+
+| | Comprobar con |
+|---|---|
+| Node 20 o superior | `node -v` |
+| npm 10 o superior | `npm -v` |
+| git | `git --version` |
+| Claude Code | `claude --version` |
+
+Y que git sepa quién eres:
 
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@email.com"
 ```
 
-Sin esto, el primer commit falla con un mensaje que no se entiende.
+**En Windows:** instala WSL2 (`wsl --install` en PowerShell) y trabaja dentro de
+Linux, con el proyecto en `~/proyectos`, no en `/mnt/c`. Tarda entre 20 minutos y una
+hora. Si eso suena a problema, ve al camino A: te ahorras la tarde entera.
 
-## Cuentas
+---
 
-**GitHub** — que puedas crear un repositorio **privado** y subir código. La forma
-más rápida es instalar `gh` y hacer `gh auth login`: evita pelearse con claves SSH.
+## Comprueba que está todo
 
-**Supabase** (supabase.com) — crear un proyecto, región la más cercana.
-**Guarda la contraseña de la base de datos en un gestor de contraseñas: no se puede
-recuperar.** Si se pierde hay que resetearla y reconfigurarlo todo.
+Desde donde vayas a trabajar, sea la nube o tu ordenador:
 
-**Vercel** (vercel.com) — crea la cuenta **con GitHub**, plan gratuito (Hobby). No
-pide tarjeta. Así Vercel ve tus repositorios y desplegar es un clic.
-
-## Windows
-
-Claude Code y todo lo demás funcionan mejor en **WSL2** (Ubuntu). Instalarlo tarda
-entre 20 minutos y una hora según la máquina — por eso es día 0 y no día 1.
-
-```powershell
-wsl --install
+```bash
+bash ~/builder-lab-skills/builder-lab-mvp/scripts/check-entorno.sh
 ```
 
-Y a partir de ahí se trabaja **dentro** de WSL, con el proyecto en el sistema de
-ficheros de Linux (`~/proyectos`), no en `/mnt/c`. En `/mnt/c` todo va varias veces
-más lento y algunas cosas fallan raro.
+Te dice dónde estás trabajando, qué falta y el comando exacto para arreglarlo.
 
-## Límites de uso de Claude
+**Gate de H0:** el script termina en verde y tienes las tres cuentas creadas.
 
-Con el plan de pago hay un límite por ventana de tiempo. En un día intenso se puede
-alcanzar. Para que no pase a media tarde:
+---
 
-- `/clear` al cambiar de feature. El contexto largo se paga en cada mensaje.
-- Pedir cosas concretas: "arregla el error X en el fichero Y", no "revisa la app".
-- No pedirle que lea toda la base de código para algo que ya sabes dónde está.
+## Lo que NO hace falta
 
-## Lo que hay que traer pensado (no decidido)
+- Instalar PostgreSQL: la base de datos está en Supabase.
+- Instalar Docker: no se usa.
+- Un servidor, un VPS o un dominio: Vercel da la dirección.
+- Tarjeta de crédito: nada de esto se paga.
+- Saber usar la terminal: Claude Code escribe los comandos.
+
+## Lo que sí conviene traer pensado
 
 - Qué app quieres hacer, en una frase.
 - Para quién.
-- Qué es lo único que tiene que funcionar el día 7.
+- Qué es lo único que tiene que funcionar al final.
 
-No hace falta tenerlo claro: el día 1 empieza precisamente afinando eso. Pero llegar
-en blanco cuesta una hora.
+No hace falta tenerlo claro —H1 empieza precisamente afinando eso—, pero llegar en
+blanco cuesta una hora.
+
+## Sobre los límites de uso de Claude
+
+En un día intenso se puede llegar al límite del plan. Para que no pase a media tarde:
+
+- `/clear` al cambiar de tarea. El contexto largo se paga en cada mensaje.
+- Pide cosas concretas: *"arregla este error en este fichero"*, no *"revisa la app"*.
+- No le pidas leer todo el proyecto para algo que ya sabes dónde está.

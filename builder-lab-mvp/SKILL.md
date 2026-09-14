@@ -41,13 +41,18 @@ preguntarle solo genera parálisis. Si insiste en otra cosa, lee
 
 > entorno → entrevista → scaffold → alcance → modelo → deploy
 
-### Paso 0 — Entorno (5 min)
+### Paso 0 — H0 · Preparado (5 min si viene hecho)
 
-Ejecuta `scripts/check-entorno.sh`. Si falta algo, se arregla **antes** de seguir.
-No empieces el día 1 con el entorno roto: es la forma más común de perder la mañana.
+Ejecuta `scripts/check-entorno.sh`. Te dice **dónde** se está trabajando —el
+ordenador de la persona o un espacio en la nube— y qué falta.
 
-Si la persona llega sin cuentas creadas o sin Node, no improvises: `references/preparacion.md`
-tiene la lista y el orden. Media hora ahí ahorra media mañana.
+Si falta algo, se arregla **antes** de seguir. No improvises:
+`references/preparacion.md` tiene las tres cuentas, los dos caminos (nube o local) y
+el orden. Media hora ahí ahorra media jornada después.
+
+**Nadie tiene que instalar nada obligatoriamente.** Si el ordenador va lento, es
+viejo o la persona trabaja desde el móvil, el camino es GitHub Codespaces: editor y
+terminal dentro del navegador. Ofrécelo tú antes de que pregunte.
 
 ### Paso 1 — Entrevista (20 min)
 
@@ -117,19 +122,23 @@ Pide aprobación. Un modelo mal el día 1 se paga los días 4, 5 y 6.
 Cuando esté aprobado: `npx prisma db push` y comprueba en el panel de Supabase que
 las tablas están. Si falla, es la cadena de conexión: ver `references/supabase.md`.
 
-### Paso 5 — Deploy vacío en Vercel (20 min)
+### Paso 5 — H2 · Publicado (20 min)
 
-**Sí, hoy.** Con la app vacía. Sigue `references/deploy.md`.
+**Ahora, con la app vacía.** Sigue `references/deploy.md`.
 
-Desplegar el día 7 por primera vez es la forma más habitual de no tener MVP. Hoy
-cuesta 30 minutos; el día 7 cuesta el día 7.
+Publicar por primera vez al final es la forma más habitual de no tener MVP. Ahora
+cuesta 20 minutos; al final puede costarte la demo.
+
+A partir de aquí, **la app se mira en su URL pública**. No hace falta levantar ningún
+servidor en el ordenador de nadie: cada `git push` publica.
 
 Al terminar existe una URL pública que muestra la página de inicio. Esa URL va al
 README, al `ALCANCE.md` y a la Site URL de Supabase.
 
-### Paso 6 — Cierre del día 1
+### Paso 6 — Cierre
 
-Verifica y reporta con honestidad qué está y qué no:
+Con esto quedan cerrados **H0, H1 y H2**. Verifica y reporta con honestidad qué está
+y qué no:
 
 - [ ] `docs/ALCANCE.md` aprobado, con P0/P1/P2 y el acuerdo del corte
 - [ ] `prisma/schema.prisma` aprobado y aplicado con `db push`, tablas visibles en Supabase
@@ -155,7 +164,7 @@ P0]. Invoca la skill builder-lab-hitos cada mañana."*
 | `references/deploy.md` | Paso 5: Vercel paso a paso y rollback |
 | `references/seguridad-mvp.md` | Antes de tocar ficheros, emails o datos personales |
 | `references/antipatrones.md` | Cuando pidan algo que huele a sobre-ingeniería |
-| `references/preparacion.md` | Si llega sin entorno o sin cuentas |
+| `references/preparacion.md` | H0: las tres cuentas y dónde trabajar (nube o local) |
 | `references/hitos.md` | Para explicar qué viene después del día 1 |
 
 ## Plantillas
