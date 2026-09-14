@@ -27,18 +27,25 @@ Nunca empieces el día preguntando "¿qué quieres hacer hoy?". Lo dice el `ALCA
 - Si algo sale del `ALCANCE.md`, no se construye: se anota en "Después del MVP".
 - Si llevas 3 intentos con el mismo error, **para**. Lee `references/atascos.md`.
 
-## Qué toca cada día
+## Los seis hitos
 
-| Día | Objetivo | Gate para darlo por cerrado |
-|---|---|---|
-| 2 | Login y registro funcionando, y las 2 pantallas del camino core con datos del seed | Entras con una cuenta nueva y recorres la acción core a mano, aunque sea feo |
-| 3 | Escritura real: crear/editar la entidad principal | Los datos persisten y se ven tras recargar |
-| 4 | Terminar P0 + el resto del camino core | **P0 completo de punta a punta en local** |
-| 5 | P1: lo que hace la app usable (errores, vacíos, carga) | P0 recorrido en producción con una cuenta recién creada, sin errores técnicos a la vista |
-| 6 | Pulido visual, móvil, auditoría de seguridad | Checklist de seguridad pasada entera, con lo grave corregido |
-| 7 | Datos de demo, deploy final, guion y ensayo | Demo de 3 min ensayada sobre la URL pública |
+El progreso se mide por **hitos**, no por días. El día es el objetivo; el hito es lo
+que cuenta. Quien va un día por detrás no ha fallado: está en el hito 3 en vez de en
+el 4, y sabe exactamente qué le falta.
 
-Detalle de cada día en `references/plan-7-dias.md`.
+| Hito | Qué significa | Día objetivo | Gate |
+|---|---|---|---|
+| **H1 · Arranca** | Alcance, modelo y una URL pública vacía | 1 | Lo cierra la skill `builder-lab-mvp` |
+| **H2 · Se entra y se ve** | Login funciona y las pantallas del camino core muestran datos del seed | 2 | Entras con una cuenta nueva y recorres la acción core a mano, aunque sea feo |
+| **H3 · Se escribe** | El formulario que crea la entidad principal | 3 | Creas algo desde la interfaz, recargas y sigue ahí. En producción |
+| **H4 · P0 completo** | La acción core entera | 4 | Un usuario que no eres tú hace la acción core de principio a fin |
+| **H5 · No se rompe** | Estados vacíos, errores, carga, validaciones visibles | 5 | P0 recorrido en producción con una cuenta recién creada, sin errores técnicos a la vista |
+| **H6 · Presentable** | Móvil, seguridad, datos de demo y guion | 6-7 | Checklist de seguridad pasada y demo de 3 min ensayada sobre la URL pública |
+
+**Al abrir el día, di en qué hito estás.** No "es el día 4", sino "estamos en H3 y hoy
+cerramos H4". Es la diferencia entre ir con retraso y no saber dónde estás.
+
+Detalle de cada hito en `references/plan-7-dias.md`.
 
 ## Al cerrar el día (15 min, obligatorio)
 
@@ -53,9 +60,9 @@ Si el deploy falla y no se arregla en 30 minutos: rollback al commit anterior
 (`references/atascos.md` § rollback) y se investiga mañana con la cabeza fresca.
 Nunca se acaba el día con producción rota.
 
-## La regla del día 5 — el protocolo de pánico
+## El corte — protocolo de pánico
 
-**Día 5, 18:00. Si el P0 no está completo:**
+**Se dispara cuando acaba el día 5 y H4 (P0 completo) no está cerrado:**
 
 1. Se borra **todo el P2** del repo. Hoy, no "cuando haya tiempo".
 2. Se recorta el P1 a lo imprescindible para que la demo no dé vergüenza.
@@ -68,8 +75,8 @@ Un MVP con una sola cosa que funciona bien es un MVP. Cinco cosas a medias no lo
 
 ## Señales de alarma — dilas en voz alta
 
-- Día 3 y todavía no hay nada que se guarde en la base de datos → recortar ya.
-- Día 4 y se está tocando el diseño → parar el diseño, terminar P0.
+- Acaba el día 3 y H3 no está (nada se guarda todavía) → recortar ya, no el día 5.
+- Estás en H3 y se está tocando el diseño → parar el diseño, cerrar H4.
 - La persona quiere añadir una feature que no está en el `ALCANCE.md` → "Después del MVP".
 - Se está reescribiendo algo que ya funcionaba → parar. Funcionar gana a elegante.
 - Dos días sin desplegar → desplegar ahora mismo.

@@ -1,11 +1,23 @@
-# Los 7 días, día a día
+# Los seis hitos
 
-Cada día tiene un **objetivo** y un **gate**. El gate no es opinable: o se cumple o
-el día no está cerrado. Un día sin cerrar se arrastra y se come el siguiente.
+La promesa son 7 días. El trabajo se mide en **hitos**: cada uno tiene un día
+objetivo y un gate que no es opinable. Ir un día por detrás no es fracasar; es estar
+en el hito anterior y saberlo.
+
+| | | Día |
+|---|---|---|
+| H1 | Arranca | 1 |
+| H2 | Se entra y se ve | 2 |
+| H3 | Se escribe | 3 |
+| H4 | P0 completo | 4 |
+| H5 | No se rompe | 5 |
+| H6 | Presentable | 6-7 |
+
+**H4 es el que decide si hay MVP.** Todo lo que va después es acabado.
 
 ---
 
-## Día 1 — Alcance, modelo, scaffold, deploy vacío
+## H1 · Arranca — día 1
 
 Lo cubre la skill `builder-lab-mvp`.
 
@@ -14,7 +26,7 @@ commit hecho.
 
 ---
 
-## Día 2 — Entrar y ver datos
+## H2 · Se entra y se ve — día 2
 
 **Primero el login.** El scaffold ya lo trae; hoy se comprueba que funciona de verdad.
 Si el producto no tiene usuarios, sáltate los puntos 1 y 2.
@@ -31,11 +43,11 @@ Feo está bien. Sin estilo está bien. El objetivo es **ver datos reales en pant
 **Gate:** creas una cuenta nueva en producción, entras, y recorres el camino core con
 el ratón, aunque todavía no se pueda crear nada. Desplegado.
 
-**Trampa del día 2:** ponerse a diseñar. Si aparece la palabra "color", vuelve a la lista.
+**Trampa de H2:** ponerse a diseñar. Si aparece la palabra "color", vuelve a la lista.
 
 ---
 
-## Día 3 — Escribir datos
+## H3 · Se escribe — día 3
 
 El formulario que crea la entidad principal, de punta a punta.
 
@@ -48,12 +60,12 @@ El formulario que crea la entidad principal, de punta a punta.
 **Gate:** creas algo desde la interfaz, recargas y sigue ahí. En producción, no solo
 en local.
 
-**Trampa del día 3:** el formulario bonito. Un `input` sin estilo que guarda vale más
+**Trampa de H3:** el formulario bonito. Un `input` sin estilo que guarda vale más
 que uno precioso que no.
 
 ---
 
-## Día 4 — Cerrar el P0
+## H4 · P0 completo — día 4
 
 El día que decide si hay MVP. Se termina **todo** lo que queda del P0 y nada más.
 
@@ -63,11 +75,11 @@ El día que decide si hay MVP. Se termina **todo** lo que queda del P0 y nada m�
 **Gate:** la acción core funciona de punta a punta, en producción, con un usuario que
 no eres tú (crea una cuenta nueva y hazlo).
 
-**Trampa del día 4:** empezar algo nuevo del P1 con el P0 a medias. Terminar gana a empezar.
+**Trampa de H4:** empezar algo nuevo del P1 con el P0 a medias. Terminar gana a empezar.
 
 ---
 
-## Día 5 — Que no se rompa + el corte
+## H5 · No se rompe — día 5
 
 Hoy la app deja de romperse cuando el usuario hace algo raro.
 
@@ -76,8 +88,8 @@ Hoy la app deja de romperse cuando el usuario hace algo raro.
 3. **Carga:** algo que indique que está trabajando.
 4. **Validaciones visibles:** el usuario entiende qué ha hecho mal.
 
-**A las 18:00 — la regla del día 5.** Si el P0 no está completo: se borra todo el P2,
-se recorta el P1 y se reescribe el `ALCANCE.md`. Se decidió el día 1.
+**Al acabar el día 5 — el corte.** Si H4 no está cerrado: se borra todo el P2, se
+recorta el P1 y se reescribe el `ALCANCE.md`. Se decidió el día 1.
 
 **Gate:** recorres el P0 entero **en producción, con una cuenta recién creada**, y la
 app no enseña ningún error técnico. Esa cuenta nueva es la prueba de verdad: descubre
@@ -85,7 +97,7 @@ los datos que solo existían en tu usuario y las pantallas que nunca viste vací
 
 ---
 
-## Día 6 — Que se vea bien + que no sea vulnerable
+## H6 · Presentable (1/2) — día 6
 
 1. **Móvil primero:** cada pantalla a 390px. Es donde se va a ver la demo.
 2. Tipografía, espaciados y colores desde los tokens. Cero hex sueltos
@@ -100,11 +112,11 @@ los datos que solo existían en tu usuario y las pantallas que nunca viste vací
 una segunda cuenta no puede ver los datos de la primera—, y la app usable en un móvil
 de verdad (el tuyo, no el simulador).
 
-**Trampa del día 6:** rediseñarlo todo. Hoy se pule lo que hay, no se rehace.
+**Trampa de H6:** rediseñarlo todo. Hoy se pule lo que hay, no se rehace.
 
 ---
 
-## Día 7 — Demo
+## H6 · Presentable (2/2) — día 7
 
 **Cero código nuevo.** Hoy no se arregla nada que no rompa la demo.
 
@@ -119,7 +131,7 @@ código. Si algo falla durante el ensayo, eso —y solo eso— se arregla.
 
 ---
 
-## Regla que vale para los 7 días
+## Regla que vale para los seis hitos
 
 **Se despliega todos los días.** Un día sin desplegar es deuda que se cobra el día 7
 con intereses.
