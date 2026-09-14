@@ -47,7 +47,7 @@ docs/ALCANCE.md
 - Modelos en `PascalCase` singular (`Booking`, no `bookings`). Campos en `camelCase`.
 - Todo modelo lleva: `id String @id @default(cuid())`, `createdAt DateTime @default(now())`, `updatedAt DateTime @updatedAt`.
 - Tabla `User` propia con `authId String @unique` (el id de Supabase Auth). Todo lo demás referencia `User.id`, **nunca** `authId`.
-- Días 1-4: `npx prisma db push` al cambiar el modelo. A partir del día 5, cuando el modelo esté estable: `npx prisma migrate dev --name init` una sola vez.
+- `npx prisma db push` cada vez que cambies el modelo. Nada más. Sin `migrate`: la base de datos de Supabase es la misma en local y en producción.
 - Índice en toda clave foránea por la que se filtre y en todo campo usado en `where`.
 - Nada de borrado físico en entidades del core: `deletedAt DateTime?` y filtrar.
 - `prisma/seed.ts` con datos realistas. Se mantiene al día desde el día 2.

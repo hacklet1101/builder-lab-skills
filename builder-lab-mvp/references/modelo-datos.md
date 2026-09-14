@@ -91,20 +91,24 @@ enum BookingStatus {
 
 Tres tablas. Eso es un MVP.
 
-## Migraciones: db push primero, migrate después
+## Cambiar el modelo: solo `db push`
 
-- **Días 1-4:** `npx prisma db push`. El modelo cambia cada hora; generar una
-  migración por cada idea produce 40 ficheros basura y un lío del que no se sale.
-- **Día 5, cuando el modelo ya no se mueve:** borra la carpeta `prisma/migrations`
-  si existe y haz `npx prisma migrate dev --name init` una sola vez.
+```bash
+npx prisma db push
+```
 
-  > ⚠️ Esto solo es seguro **antes de que haya datos reales**. `migrate dev` puede
-  > pedir resetear la base de datos, y resetear **borra todo**. Hazlo el día 5,
-  > nunca después de la demo ni con usuarios de verdad dentro. Si ya hay datos que
-  > te importan, quédate con `db push` y no mires atrás.
-- **En producción (Coolify):** `npx prisma migrate deploy` en el build. Nunca `db push`.
+Y ya está. Una regla, toda la semana.
 
-Esta transición se hace **una vez** y hay que hacerla antes de que haya datos reales.
+Funciona porque la base de datos de Supabase es **la misma** en local y en
+producción: aplicas el cambio desde tu máquina y queda aplicado para las dos. No hay
+nada que ejecutar en el despliegue.
+
+**Nunca desde el build de Vercel.** Meter `db push` en el comando de build es la
+forma de borrar una columna con datos un viernes por la tarde.
+
+Migraciones versionadas (`prisma migrate`) son para después del MVP, cuando haya
+datos de usuarios reales que no se puedan perder. Hasta entonces son 40 ficheros que
+no aportan nada y un tema más que aprender.
 
 ## Cómo explicárselo a alguien que no sabe
 

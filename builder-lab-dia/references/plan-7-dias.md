@@ -76,7 +76,6 @@ Hoy la app deja de romperse cuando el usuario hace algo raro.
 3. **Carga:** algo que indique que está trabajando.
 4. **Validaciones visibles:** el usuario entiende qué ha hecho mal.
 5. Un test e2e del camino core (Playwright). **Uno.**
-6. Cambio de `db push` a `migrate dev --name init` (ver `modelo-datos.md` del skill de arranque).
 
 **A las 18:00 — la regla del día 5.** Si el P0 no está completo: se borra todo el P2,
 se recorta el P1 y se reescribe el `ALCANCE.md`. Se decidió el día 1.

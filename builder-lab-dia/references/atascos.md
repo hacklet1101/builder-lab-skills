@@ -42,7 +42,7 @@ Por orden:
    último deploy, hay que redesplegar para que la coja.
 3. `prisma generate` en el build.
 4. ¿El error es de runtime y no de build? Entonces mira **Runtime Logs**, no los de build.
-5. ¿Hay migraciones sin aplicar? `prisma migrate deploy` en el build.
+5. ¿Has cambiado el modelo y no has hecho `npx prisma db push` desde tu máquina?
 
 ## Rollback
 
