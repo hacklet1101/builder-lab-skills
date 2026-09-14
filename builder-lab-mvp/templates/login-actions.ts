@@ -40,7 +40,12 @@ export async function registrarse(formData: FormData) {
 
   const supabase = await obtenerSupabase()
   const { error } = await supabase.auth.signUp(datos.data)
-  if (error) conError(error.message)
+  if (error) {
+    // El mensaje de Supabase diría si ese correo ya está registrado, y eso permite
+    // averiguar quién tiene cuenta. Al log, no a la pantalla.
+    console.error('[registro]', error.message)
+    conError('No se ha podido crear la cuenta. Revisa los datos e inténtalo de nuevo.')
+  }
 
   revalidatePath('/', 'layout')
   redirect('/?registrado=1')

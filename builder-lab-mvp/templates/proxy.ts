@@ -13,7 +13,16 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 /** Rutas a las que se entra sin sesión. Todo lo demás es privado. */
-const RUTAS_PUBLICAS = ['/login', '/auth', '/registro']
+const RUTAS_PUBLICAS = ['/', '/login', '/auth', '/registro']
+
+/**
+ * Coincidencia exacta o como carpeta (`/login/olvidada` sí, `/loginfalso` no).
+ * Con `startsWith` a secas, crear una ruta llamada `/logins` la dejaría abierta
+ * sin que nadie se diera cuenta.
+ */
+function esRutaPublica(ruta: string) {
+  return RUTAS_PUBLICAS.some((r) => ruta === r || ruta.startsWith(`${r}/`))
+}
 
 export async function proxy(request: NextRequest) {
   let respuesta = NextResponse.next({ request })
@@ -37,10 +46,7 @@ export async function proxy(request: NextRequest) {
   // Refresca el token si hace falta.
   const { data: { user } } = await supabase.auth.getUser()
 
-  const ruta = request.nextUrl.pathname
-  const esPublica = ruta === '/' || RUTAS_PUBLICAS.some((r) => ruta.startsWith(r))
-
-  if (!user && !esPublica) {
+  if (!user && !esRutaPublica(request.nextUrl.pathname)) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)

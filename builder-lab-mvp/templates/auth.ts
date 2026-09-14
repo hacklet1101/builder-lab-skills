@@ -46,11 +46,18 @@ export async function obtenerUsuarioActual() {
 
   // 2. ¿Hay un usuario sembrado con ese email sin enlazar? Se reclama. Esto es lo
   //    que hace que los datos del seed sean del usuario con el que haces la demo.
-  const sembrado = await db.user.findFirst({
-    where: { email: user.email!, authId: null },
-  })
-  if (sembrado) {
-    return db.user.update({ where: { id: sembrado.id }, data: { authId: user.id } })
+  //
+  //    Solo si Supabase ha CONFIRMADO el correo. Sin esta condición, con "Confirm
+  //    email" desactivado en desarrollo cualquiera podría registrarse con el correo
+  //    de demo y quedarse con sus datos.
+  const correoConfirmado = Boolean(user.email_confirmed_at ?? user.confirmed_at)
+  if (correoConfirmado) {
+    const sembrado = await db.user.findFirst({
+      where: { email: user.email!, authId: null },
+    })
+    if (sembrado) {
+      return db.user.update({ where: { id: sembrado.id }, data: { authId: user.id } })
+    }
   }
 
   // 3. Usuario nuevo.

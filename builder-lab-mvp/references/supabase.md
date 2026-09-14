@@ -59,9 +59,9 @@ La parte importante de `obtenerUsuarioActual()`: si no encuentra el usuario por
 `authId`, busca uno **sembrado con ese email y sin `authId`** y lo reclama. Eso es lo
 que hace que los datos del seed pertenezcan al usuario con el que haces la demo.
 
-> Ese reclamo confía en que Supabase ha verificado el correo. Mientras tengas
-> desactivado "Confirm email" en desarrollo, alguien podría registrarse con el correo
-> de demo y quedarse con esos datos. **Reactívalo el día 6** (está en el plan).
+> El reclamo solo ocurre si Supabase ha **confirmado** el correo. Por eso, mientras
+> tengas "Confirm email" desactivado en desarrollo, el usuario del seed no se enlaza:
+> es lo correcto. Reactívalo el día 6 (está en el plan) y el enlace funciona.
 
 **Nunca** uses `supabase.auth.getSession()` para decidir si alguien puede ver algo:
 no revalida el token. `getUser()` sí.
