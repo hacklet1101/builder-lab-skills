@@ -31,7 +31,8 @@ fi
 printf '  \033[90m%s ficheros analizados\033[0m\n' "$N_FICHEROS"
 
 # ── 1. La frontera: src/app no habla con la base de datos ──────────────────
-HITS=$(grep -rnE "from ['\"]@/lib/db['\"]|from ['\"]@prisma/client['\"]" src/app 2>/dev/null || true)
+# Cubre el alias (@/lib/db) y los imports relativos (../../lib/db)
+HITS=$(grep -rnE "from ['\"](@/lib/db|@prisma/client|\.{1,2}/[^'\"]*lib/db)['\"]" src/app 2>/dev/null || true)
 if [ -n "$HITS" ]; then
   err "src/app importa la base de datos directamente"
   echo "$HITS" | head -5 | while IFS= read -r l; do linea "$l"; done
@@ -50,8 +51,8 @@ else
 fi
 
 # ── 3. Estilos fuera de los tokens (hex, rgb y clases arbitrarias) ─────────
-PATRON_COLOR='#[0-9a-fA-F]{3,8}([^0-9a-fA-F]|$)|\b(rgb|rgba|hsl|hsla)\('
-PATRON_ARBITRARIO='\b(bg|text|border|p[xytblr]?|m[xytblr]?|w|h|gap|rounded|shadow|fill|stroke|leading|tracking)-\['
+PATRON_COLOR='#[0-9a-fA-F]{3,8}([^0-9a-fA-F]|$)|\b(rgb|rgba|hsl|hsla|oklch|oklab)\('
+PATRON_ARBITRARIO='\b(bg|text|border|p[xytblr]?|m[xytblr]?|w|h|gap|rounded|shadow|fill|stroke|leading|tracking|grid-cols|grid-rows|min-h|max-h|min-w|max-w|top|right|bottom|left|inset|z|translate-[xy]?|scale|rotate|opacity|size)-\['
 DIRS=""
 for d in src/app src/modules src/components; do [ -d "$d" ] && DIRS="$DIRS $d"; done
 HITS=$(grep -rnE "$PATRON_COLOR|$PATRON_ARBITRARIO" --include='*.tsx' --include='*.ts' $DIRS 2>/dev/null || true)

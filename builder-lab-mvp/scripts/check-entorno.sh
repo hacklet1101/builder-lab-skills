@@ -46,11 +46,14 @@ else
 fi
 
 # GitHub
-# BatchMode + timeout: sin esto, en un equipo nuevo ssh pregunta por la clave
-# del host y el script se queda esperando input para siempre.
+# BatchMode: sin esto, en un equipo nuevo ssh pregunta por la clave del host y el
+# script se queda esperando input para siempre. `timeout` no existe en macOS.
+if command -v timeout >/dev/null 2>&1; then con_limite() { timeout 10 "$@"; }
+else con_limite() { "$@"; }; fi
+
 if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
   ok "GitHub CLI autenticado"
-elif timeout 10 ssh -T -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+elif con_limite ssh -T -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
         -o ConnectTimeout=5 git@github.com 2>&1 | grep -q "successfully authenticated"; then
   ok "GitHub por SSH"
 else
@@ -64,8 +67,14 @@ command -v claude >/dev/null 2>&1 && ok "Claude Code instalado" \
 
 # Conexión
 curl -s --max-time 5 https://registry.npmjs.org >/dev/null 2>&1 \
-  && ok "Conexión a internet" \
+  && ok "Conexión a npm" \
   || fail "Sin acceso a npm" "Revisa tu conexión o proxy"
+
+# Prisma descarga sus engines de aquí. En redes con proxy corporativo falla justo
+# esto, y el error que da no menciona la red por ningún lado.
+curl -s --max-time 8 -o /dev/null https://binaries.prisma.sh \
+  && ok "Conexión a los binarios de Prisma" \
+  || fail "Sin acceso a binaries.prisma.sh" "Prisma no podrá descargar sus engines. Si estás en una red corporativa o con VPN, prueba desde otra red"
 
 echo
 echo "Cuentas que necesitas (compruébalas tú, no puedo verificarlas):"

@@ -117,6 +117,7 @@ copiar ALCANCE.md      docs/ALCANCE.md
 copiar env.example     .env.example
 copiar schema.prisma   prisma/schema.prisma
 copiar seed.ts         prisma/seed.ts
+copiar prisma.config.ts prisma.config.ts
 copiar env.ts          src/lib/env.ts
 copiar db.ts           src/lib/db.ts
 copiar tokens.css      src/styles/tokens.css
@@ -189,7 +190,8 @@ pkg.scripts = {
   'db:studio': 'prisma studio',
   'db:generate': 'prisma generate',
 }
-pkg.prisma = { seed: 'tsx prisma/seed.ts' }
+// el seed se declara en prisma.config.ts, no en package.json (deprecado en Prisma 7)
+delete pkg.prisma
 pkg.builderLab = {
   kit: 'builder-lab-mvp',
   version: '1.0.0',

@@ -161,7 +161,7 @@ builder-lab-dia cada mañana."*
 ## Plantillas
 
 `templates/` contiene `CLAUDE.md`, `ALCANCE.md`, `README.md`, `env.example`,
-`schema.prisma`, `seed.ts`, `env.ts`, `db.ts`, `auth.ts`, `proxy.ts`,
+`schema.prisma`, `prisma.config.ts`, `seed.ts`, `env.ts`, `db.ts`, `auth.ts`, `proxy.ts`,
 `login-page.tsx`, `login-actions.ts`, `tokens.css`, `globals.css`, `page.tsx`,
 `layout.tsx` y `gitignore`.
 Los copia `init-mvp.sh` y rellena los `{{PLACEHOLDERS}}`. No los copies a mano.
