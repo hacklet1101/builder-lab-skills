@@ -9,7 +9,6 @@ mi-app/
   README.md
   .env.example                 sin valores reales
   .gitignore                   con .env dentro DESDE EL PRIMER COMMIT
-  Dockerfile                   para Coolify
   prisma/
     schema.prisma
     seed.ts

@@ -24,7 +24,7 @@ mata el MVP porque consume los días que necesitas para que la acción core func
 | Antipatrón | Qué hacer |
 |---|---|
 | Husky, commitlint, lint-staged | Nada. Commits a mano, con cabeza |
-| CI/CD con tests y linters | Coolify despliega al hacer push. Suficiente |
+| CI/CD con tests y linters | Vercel despliega al hacer push. Suficiente |
 | Storybook | No |
 | Docker para desarrollo | `npm run dev`. Docker solo para el deploy |
 | Configuración de ESLint/Prettier personalizada | La que trae `create-next-app` |
@@ -60,7 +60,7 @@ falta"*, *"he visto un vídeo de Astro"*.
 
 Respuesta:
 
-> *"El stack está cerrado para la formación: Next, Prisma, Supabase, Coolify. No
+> *"El stack está cerrado para la formación: Next, Prisma, Supabase, Vercel. No
 > porque sea el único bueno, sino porque es el que podemos ayudarte a arreglar
 > cuando se rompa el jueves a las once de la noche. Cambiarlo te cuesta dos días de
 > los siete."*

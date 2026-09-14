@@ -119,12 +119,7 @@ copiar seed.ts         prisma/seed.ts
 copiar env.ts          src/lib/env.ts
 copiar db.ts           src/lib/db.ts
 copiar tokens.css      src/styles/tokens.css
-copiar Dockerfile      Dockerfile
 
-# .dockerignore: sin él, `COPY . .` mete el .env dentro de la imagen
-if [ -f .dockerignore ]; then skip ".dockerignore"; else
-  cp "$TEMPLATES/dockerignore" .dockerignore; done_ ".dockerignore (protege el .env)"
-fi
 
 # el verificador de reglas vive en el proyecto, no en el skill
 if [ -f check-reglas.sh ]; then skip "check-reglas.sh"; else
@@ -200,14 +195,6 @@ fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n')
 NODE
 done_ "scripts"
 
-# ── 7. next.config: standalone para Coolify ────────────────────────────────
-CFG=$(ls next.config.* 2>/dev/null | head -1 || true)
-if [ -n "$CFG" ] && ! grep -q "standalone" "$CFG"; then
-  sedi "s|const nextConfig.*= {|&\n  output: 'standalone',|" "$CFG"
-  grep -q "standalone" "$CFG" && done_ "$CFG → output standalone" \
-    || printf '  \033[33m!\033[0m añade a mano  output: "standalone"  en %s\n' "$CFG"
-fi
-
 # ── 7b. Cliente Prisma ─────────────────────────────────────────────────────
 # Obligatorio: el postinstall de @prisma/client generó un cliente vacío ANTES de
 # que existiera nuestro schema. Sin esto, el editor no conoce db.user ni los tipos.
@@ -249,7 +236,7 @@ Falta esto, y lo tienes que hacer tú (no lo hace el script):
      NEXT_PUBLIC_SUPABASE_ANON_KEY al fichero .env
   3. npx prisma db push        (crea las tablas)
   4. npm run dev               (comprobar que arranca)
-  5. Subir el repo a GitHub (privado) y conectar Coolify — HOY, día 1
+  5. Subir el repo a GitHub (privado) e importarlo en vercel.com — HOY, día 1
 
 ────────────────────────────────────────────────────────────
 FIN

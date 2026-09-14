@@ -35,7 +35,8 @@ ya ha estado publicada.
    - Contraseña de la base de datos → Supabase, Project Settings → Database → Reset.
    - anon / service_role → Supabase, Project Settings → API → Rotate.
    - Cualquier otra (Resend, etc.) → revócala en su panel y crea una nueva.
-2. Actualiza `.env` en local y las variables en Coolify.
+2. Actualiza `.env` en local y las variables en Vercel (y redespliega: las variables
+   nuevas no llegan al deploy anterior).
 3. **Ahora** limpia git: `git rm --cached .env`, confirma que está en `.gitignore`,
    commit.
 4. Si el repo es público o ya se ha subido, asume que la clave está comprometida

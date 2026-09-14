@@ -1,6 +1,6 @@
 ---
 name: builder-lab-mvp
-description: Kit de arranque de Builder Lab - día 1 de un MVP de 7 días. Úsala cuando alguien diga "arranca el proyecto", "empiezo mi app de", "quiero construir el MVP de", "builder lab", "kit de arranque", "monta la estructura del proyecto", o describa una app que quiere construir desde cero. Entrevista, recorta el alcance, diseña el modelo de datos y genera el proyecto (Next.js + Prisma + Supabase + Coolify). No la uses para los días 2-7: para eso está builder-lab-dia.
+description: Kit de arranque de Builder Lab - día 1 de un MVP de 7 días. Úsala cuando alguien diga "arranca el proyecto", "empiezo mi app de", "quiero construir el MVP de", "builder lab", "kit de arranque", "monta la estructura del proyecto", o describa una app que quiere construir desde cero. Entrevista, recorta el alcance, diseña el modelo de datos y genera el proyecto (Next.js + Prisma + Supabase + Vercel). No la uses para los días 2-7: para eso está builder-lab-dia.
 ---
 
 # Builder Lab — arranque del MVP (día 1)
@@ -31,7 +31,7 @@ construye, y que eso son 30 minutos que ahorran 3 días. Y sigues el flujo.
 | Ficheros | Supabase Storage |
 | Emails | Resend |
 | Estilos | Tailwind |
-| Despliegue | Coolify (solo la app; la BD la gestiona Supabase) |
+| Despliegue | Vercel, plan gratuito (la BD la gestiona Supabase) |
 
 No preguntes por tecnología. La persona no tiene criterio para elegirla y
 preguntarle solo genera parálisis. Si insiste en otra cosa, lee
@@ -112,7 +112,7 @@ Pide aprobación. Un modelo mal el día 1 se paga los días 4, 5 y 6.
 Cuando esté aprobado: `npx prisma db push` y comprueba en el panel de Supabase que
 las tablas están. Si falla, es la cadena de conexión: ver `references/supabase.md`.
 
-### Paso 5 — Deploy vacío en Coolify (30 min)
+### Paso 5 — Deploy vacío en Vercel (20 min)
 
 **Sí, hoy.** Con la app vacía. Sigue `references/deploy.md`.
 
@@ -120,7 +120,7 @@ Desplegar el día 7 por primera vez es la forma más habitual de no tener MVP. H
 cuesta 30 minutos; el día 7 cuesta el día 7.
 
 Al terminar existe una URL pública que muestra la página de inicio. Esa URL va al
-README y al `ALCANCE.md`.
+README, al `ALCANCE.md` y a la Site URL de Supabase.
 
 ### Paso 6 — Cierre del día 1
 
@@ -129,7 +129,7 @@ Verifica y reporta con honestidad qué está y qué no:
 - [ ] `docs/ALCANCE.md` aprobado, con P0/P1/P2 y la regla del día 5
 - [ ] `prisma/schema.prisma` aprobado y aplicado con `db push`, tablas visibles en Supabase
 - [ ] `npm run dev` arranca y carga
-- [ ] URL pública en Coolify funcionando
+- [ ] URL pública en Vercel funcionando
 - [ ] `.env` en `.gitignore`, `.env.example` sin valores reales
 - [ ] Primer commit hecho
 - [ ] `CLAUDE.md` en la raíz del proyecto, personalizado
@@ -146,7 +146,7 @@ builder-lab-dia cada mañana."*
 | `references/modelo-datos.md` | Paso 4: convenciones de Prisma para MVP |
 | `references/estructura.md` | Paso 2: el árbol de carpetas y por qué |
 | `references/supabase.md` | Pasos 2 y 4: configurar Supabase, auth, las dos URLs |
-| `references/deploy.md` | Paso 5: Coolify paso a paso y rollback |
+| `references/deploy.md` | Paso 5: Vercel paso a paso y rollback |
 | `references/seguridad-mvp.md` | Antes de tocar ficheros, emails o datos personales |
 | `references/antipatrones.md` | Cuando pidan algo que huele a sobre-ingeniería |
 | `references/dia-0.md` | Si llega sin entorno o sin cuentas |
@@ -156,7 +156,7 @@ builder-lab-dia cada mañana."*
 
 `templates/` contiene `CLAUDE.md`, `ALCANCE.md`, `README.md`, `env.example`,
 `schema.prisma`, `seed.ts`, `env.ts`, `db.ts`, `tokens.css`, `globals.css`,
-`page.tsx`, `layout.tsx`, `Dockerfile`, `dockerignore` y `gitignore`.
+`page.tsx`, `layout.tsx` y `gitignore`.
 Los copia `init-mvp.sh` y rellena los `{{PLACEHOLDERS}}`. No los copies a mano.
 
 ## Las reglas se comprueban, no se confían

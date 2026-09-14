@@ -53,6 +53,6 @@ Aceptado el {{FECHA}}.
 
 ## Estado
 
-- URL en producción: {{URL_COOLIFY}}
+- URL en producción: {{URL_VERCEL}}
 - Día actual: {{DIA}}
 - Se retoma en: {{SIGUIENTE_PASO}}

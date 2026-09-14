@@ -25,12 +25,12 @@ Comprueba que funciona diciéndole a Claude Code: *"quiero arrancar el MVP de mi
 bash ~/builder-lab-skills/builder-lab-mvp/scripts/check-entorno.sh
 ```
 
-Y ten listas estas cuentas: **Supabase**, **Coolify** y **GitHub**.
+Y ten listas estas cuentas: **Supabase**, **Vercel** y **GitHub**.
 
 ## El stack
 
 Next.js (App Router) · TypeScript · Prisma · PostgreSQL en Supabase · Supabase Auth ·
-Tailwind · Docker · Coolify.
+Tailwind · Vercel (plan gratuito).
 
 Está cerrado a propósito: uniforme para todos los alumnos, para poder ayudarles
 cuando algo se rompa.
@@ -43,7 +43,7 @@ builder-lab-mvp/
   references/           día 0, alcance, modelo de datos, estructura, supabase,
                         seguridad, deploy, antipatrones
   templates/            CLAUDE.md, ALCANCE.md, schema.prisma, env/db/seed,
-                        tokens.css, Dockerfile, .dockerignore…
+                        tokens.css, globals.css, page/layout…
   scripts/              check-entorno.sh, init-mvp.sh, check-reglas.sh
 builder-lab-dia/
   SKILL.md              ritual diario

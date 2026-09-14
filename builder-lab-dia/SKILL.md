@@ -14,7 +14,7 @@ son obligatorios. El que se salta el cierre llega al día 7 sin nada desplegado.
 2. `git status` — si hay cambios sin commitear de ayer, commitea o descarta antes de tocar nada.
 3. `git log --oneline -5` — qué se hizo ayer de verdad.
 4. Di qué se va a hacer hoy: **1 a 3 items del P0**, no más. Si el P0 está completo, pasa al P1.
-5. Verifica que la URL de Coolify sigue viva.
+5. Verifica que la URL de producción sigue viva.
 
 Nunca empieces el día preguntando "¿qué quieres hacer hoy?". Lo dice el `ALCANCE.md`.
 
@@ -43,8 +43,8 @@ Detalle de cada día en `references/plan-7-dias.md`.
 ## Al cerrar el día (15 min, obligatorio)
 
 1. Todo commiteado.
-2. **Deploy a Coolify.** Todos los días, no solo el 7. Si el deploy rompe, se
-   arregla hoy, no mañana.
+2. **Push a `main`.** Vercel despliega solo. Todos los días, no solo el 7. Si el
+   deploy rompe, se arregla hoy, no mañana.
 3. Abre la URL pública y comprueba que lo de hoy está ahí.
 4. Actualiza `docs/ALCANCE.md`: marca lo hecho.
 5. Escribe en dos líneas dónde se retoma mañana.

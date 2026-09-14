@@ -31,7 +31,7 @@ cd "$TMP/$NOMBRE"
 
 paso "2/7 ficheros clave"
 for f in CLAUDE.md docs/ALCANCE.md prisma/schema.prisma src/lib/db.ts \
-         src/lib/env.ts src/styles/tokens.css Dockerfile .dockerignore \
+         src/lib/env.ts src/styles/tokens.css \
          .env.example check-reglas.sh; do
   [ -f "$f" ] && ok "$f" || err "falta $f"
 done
@@ -52,8 +52,7 @@ else
   ok "src/ sin placeholders"
 fi
 
-paso "3/7 el .env no puede acabar en la imagen"
-grep -q '^\.env' .dockerignore && ok ".env ignorado por Docker" || err ".dockerignore no protege el .env"
+paso "3/7 el .env no puede acabar en el repo"
 grep -qE '^\.env$' .gitignore && ok ".env ignorado por git" || err ".gitignore no protege el .env"
 
 paso "4/7 cliente Prisma al día con el schema"

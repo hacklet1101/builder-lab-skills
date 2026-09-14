@@ -2,11 +2,11 @@
 
 {{UNA_FRASE}}
 
-**En producción:** {{URL_COOLIFY}}
+**En producción:** {{URL_VERCEL}}
 
 ## Stack
 
-Next.js (App Router) · TypeScript · Prisma · PostgreSQL (Supabase) · Tailwind · Coolify
+Next.js (App Router) · TypeScript · Prisma · PostgreSQL (Supabase) · Tailwind · Vercel
 
 ## Arrancar en local
 

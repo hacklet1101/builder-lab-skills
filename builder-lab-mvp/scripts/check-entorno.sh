@@ -70,7 +70,7 @@ curl -s --max-time 5 https://registry.npmjs.org >/dev/null 2>&1 \
 echo
 echo "Cuentas que necesitas (compruébalas tú, no puedo verificarlas):"
 echo "  □ Supabase — supabase.com, proyecto creado, contraseña de BD guardada"
-echo "  □ Coolify  — acceso al panel donde vas a desplegar"
+echo "  □ Vercel   — vercel.com, cuenta creada CON GitHub, plan gratuito"
 echo "  □ GitHub   — puedes crear repositorios privados"
 echo
 

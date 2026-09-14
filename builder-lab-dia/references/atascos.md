@@ -33,22 +33,22 @@ Qué hacer:
 
 El contexto sucio es la causa del 90% de los bucles. `/clear` es gratis.
 
-## Cuando el deploy funciona en local pero no en Coolify
+## Cuando el deploy funciona en local pero no en Vercel
 
 Por orden:
 
-1. Logs de **build** en Coolify (no los de runtime).
-2. ¿Todas las variables del `.env` están en Coolify? Las `NEXT_PUBLIC_*` y
-   `DATABASE_URL` deben estar marcadas como **Build Variable**.
+1. **Build Logs** en Vercel, en el deployment que falló (no los de runtime).
+2. ¿Todas las variables del `.env` están en Vercel? Si añadiste alguna después del
+   último deploy, hay que redesplegar para que la coja.
 3. `prisma generate` en el build.
-4. Puerto 3000 y `output: 'standalone'` en `next.config`.
+4. ¿El error es de runtime y no de build? Entonces mira **Runtime Logs**, no los de build.
 5. ¿Hay migraciones sin aplicar? `prisma migrate deploy` en el build.
 
 ## Rollback
 
 Producción rota y no se arregla en 30 minutos:
 
-- **Coolify:** Deployments → el despliegue anterior que funcionaba → Redeploy.
+- **Vercel:** Deployments → el último que funcionaba → **Promote to Production**.
 - **Git:** `git revert <hash>` y push. Nunca `git reset --hard` sobre algo ya empujado.
 
 Y se acaba el día. Mañana, con la cabeza fresca, en veinte minutos.

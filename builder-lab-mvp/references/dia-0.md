@@ -34,8 +34,8 @@ más rápida es instalar `gh` y hacer `gh auth login`: evita pelearse con claves
 **Guarda la contraseña de la base de datos en un gestor de contraseñas: no se puede
 recuperar.** Si se pierde hay que resetearla y reconfigurarlo todo.
 
-**Coolify** — acceso al panel donde vas a desplegar. Compruébalo entrando hoy, no el
-día 7.
+**Vercel** (vercel.com) — crea la cuenta **con GitHub**, plan gratuito (Hobby). No
+pide tarjeta. Así Vercel ve tus repositorios y desplegar es un clic.
 
 ## Windows
 
