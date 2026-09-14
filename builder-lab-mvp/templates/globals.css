@@ -1,0 +1,15 @@
+@import "../styles/tokens.css";
+
+/* Estilos base. Todo lo demás son utilidades de Tailwind en los componentes.
+   Los valores salen de tokens.css: aquí no se escribe ningún color. */
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,58 @@
+// Modelo de datos — {{NOMBRE_PROYECTO}}
+// builder-lab · hacklet 2026
+//
+// Convenciones (no las cambies):
+//   modelos en PascalCase singular, campos en camelCase
+//   id: String @id @default(cuid())
+//   createdAt / updatedAt en todos los modelos
+//   deletedAt en las entidades del core
+//   @@index en toda clave foránea por la que filtres
+//   @@unique donde no pueda haber duplicados
+//   dinero: Decimal @db.Decimal(10,2). NUNCA Float
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// Usuario de esta app. authId enlaza con Supabase Auth.
+/// Todo lo demás referencia User.id, nunca authId.
+/// authId es opcional para poder sembrar usuarios antes de que existan en
+/// Supabase: se rellena solo, la primera vez que ese email inicia sesión.
+model User {
+  id        String   @id @default(cuid())
+  authId    String?  @unique
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // {{RELACIONES_DEL_USUARIO}}
+}
+
+// ---------------------------------------------------------------------------
+// Ejemplo de entidad del core. Bórralo y escribe las tuyas.
+// ---------------------------------------------------------------------------
+//
+// model Item {
+//   id        String    @id @default(cuid())
+//   title     String
+//   status    ItemStatus @default(DRAFT)
+//   owner     User      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+//   ownerId   String
+//   deletedAt DateTime?
+//   createdAt DateTime  @default(now())
+//   updatedAt DateTime  @updatedAt
+//
+//   @@index([ownerId])
+// }
+//
+// enum ItemStatus {
+//   DRAFT
+//   PUBLISHED
+// }

@@ -1,0 +1,29 @@
+/* builder-lab · hacklet 2026 */
+
+/* Tokens de diseño — Tailwind 4 (configuración en CSS, no hay tailwind.config).
+   Este es el ÚNICO sitio con valores de color. Cero hex dentro de los componentes.
+   Cada token de aquí genera su utilidad: --color-primary → bg-primary, text-primary… */
+
+@import "tailwindcss";
+
+@theme {
+  /* Marca */
+  --color-primary: oklch(0.55 0.19 258);
+  --color-primary-hover: oklch(0.47 0.19 258);
+
+  /* Superficies */
+  --color-surface: oklch(0.98 0.002 250);
+  --color-line: oklch(0.92 0.004 250);
+
+  /* Texto */
+  --color-ink: oklch(0.22 0.01 260);
+  --color-ink-muted: oklch(0.55 0.015 260);
+
+  /* Estados */
+  --color-success: oklch(0.62 0.15 150);
+  --color-danger: oklch(0.58 0.21 25);
+  --color-warning: oklch(0.75 0.16 75);
+
+  /* Forma */
+  --radius-card: 0.625rem;
+}

@@ -1,0 +1,22 @@
+# Sin esto, `COPY . .` mete tu .env y tu node_modules local dentro de la imagen.
+# El .env queda en las capas de la imagen aunque la etapa final no lo copie.
+node_modules
+.next
+out
+dist
+
+.env
+.env.*
+!.env.example
+
+.git
+.gitignore
+docs
+*.md
+!README.md
+
+.vscode
+.idea
+.DS_Store
+*.log
+check-reglas.sh
