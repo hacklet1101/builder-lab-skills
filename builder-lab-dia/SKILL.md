@@ -34,7 +34,7 @@ Nunca empieces el día preguntando "¿qué quieres hacer hoy?". Lo dice el `ALCA
 | 2 | Login y registro funcionando, y las 2 pantallas del camino core con datos del seed | Entras con una cuenta nueva y recorres la acción core a mano, aunque sea feo |
 | 3 | Escritura real: crear/editar la entidad principal | Los datos persisten y se ven tras recargar |
 | 4 | Terminar P0 + el resto del camino core | **P0 completo de punta a punta en local** |
-| 5 | P1: lo que hace la app usable (errores, vacíos, carga) | Un test e2e del camino core pasa |
+| 5 | P1: lo que hace la app usable (errores, vacíos, carga) | P0 recorrido en producción con una cuenta recién creada, sin errores técnicos a la vista |
 | 6 | Pulido visual, móvil, auditoría de seguridad | Checklist de seguridad pasada entera, con lo grave corregido |
 | 7 | Datos de demo, deploy final, guion y ensayo | Demo de 3 min ensayada sobre la URL pública |
 

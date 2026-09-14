@@ -75,12 +75,13 @@ Hoy la app deja de romperse cuando el usuario hace algo raro.
 2. **Errores:** qué se ve cuando algo falla. Un mensaje en español, no un stack.
 3. **Carga:** algo que indique que está trabajando.
 4. **Validaciones visibles:** el usuario entiende qué ha hecho mal.
-5. Un test e2e del camino core (Playwright). **Uno.**
 
 **A las 18:00 — la regla del día 5.** Si el P0 no está completo: se borra todo el P2,
 se recorta el P1 y se reescribe el `ALCANCE.md`. Se decidió el día 1.
 
-**Gate:** el test e2e pasa y la app no enseña ningún error técnico al usuario.
+**Gate:** recorres el P0 entero **en producción, con una cuenta recién creada**, y la
+app no enseña ningún error técnico. Esa cuenta nueva es la prueba de verdad: descubre
+los datos que solo existían en tu usuario y las pantallas que nunca viste vacías.
 
 ---
 

@@ -29,7 +29,7 @@ mata el MVP porque consume los días que necesitas para que la acción core func
 | Docker para desarrollo | `npm run dev`. Docker solo para el deploy |
 | Configuración de ESLint/Prettier personalizada | La que trae `create-next-app` |
 | Documentación generada (mkdocs, C4, ADRs) | Un `README.md` y `docs/ALCANCE.md` |
-| Cobertura de tests | Un test e2e del camino core. Y ya |
+| Cobertura de tests | Ninguno. Se prueba a mano, en producción, con una cuenta nueva |
 
 ## Producto
 

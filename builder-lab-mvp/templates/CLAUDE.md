@@ -84,7 +84,7 @@ docs/ALCANCE.md
 - Una capacidad cada vez. Nunca "haz la app entera".
 - Antes de escribir código de una feature nueva, di en 3 líneas qué ficheros vas a tocar y espera confirmación.
 - Si algo no está en `docs/ALCANCE.md`, pregunta antes de construirlo.
-- No escribas tests salvo que se te pida. En este proyecto solo hay un test e2e del camino core.
+- No escribas tests salvo que se te pidan.
 - No levantes servicios (docker, servidores) sin que te lo pidan en esa misma petición.
 
 ## "Debería funcionar" está prohibido

@@ -10,7 +10,7 @@ explicárselo a la persona el día 1.
 | **2** | Las pantallas del camino core, leyendo datos del seed | Puedes recorrer la acción core a mano, aunque sea feo |
 | **3** | Escritura real: crear y editar la entidad principal | Los datos persisten y siguen ahí al recargar |
 | **4** | Terminar el P0 completo | La acción core funciona de punta a punta en local |
-| **5** | P1: errores, estados vacíos, carga. Test e2e. **Corte de P2 si hace falta** | La app no se rompe si el usuario hace algo raro |
+| **5** | P1: errores, estados vacíos, carga. **Corte de P2 si hace falta** | La app no se rompe si el usuario hace algo raro |
 | **6** | Pulido visual, móvil, auditoría de seguridad | Se ve bien en un móvil y no tiene agujeros graves |
 | **7** | Datos de demo, deploy final, guion y ensayo | Demo de 3 minutos ensayada sobre la URL pública |
 
