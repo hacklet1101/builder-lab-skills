@@ -87,13 +87,13 @@ docs/ALCANCE.md
 - Antes de escribir código de una feature nueva, di en 3 líneas qué ficheros vas a tocar y espera confirmación.
 - Si algo no está en `docs/ALCANCE.md`, pregunta antes de construirlo.
 - No escribas tests salvo que se te pidan.
-- No levantes servicios (docker, servidores) sin que te lo pidan en esa misma petición.
+- **No levantes servidores ni servicios** (`npm run dev`, docker, bases de datos) salvo que te lo pidan en esa misma petición. La app se mira en su URL pública: subir el cambio y abrirla es el modo normal de comprobar que algo funciona.
 
 ## "Debería funcionar" está prohibido
 
 Una tarea está hecha cuando se cumplen las dos cosas, no antes:
 
-1. Lo has **abierto en el navegador** y has hecho la acción tú.
+1. Lo has **abierto en la URL pública** y has hecho la acción tú.
 2. `npm run check` pasa (reglas del proyecto + tipos).
 
 Si no lo has ejecutado, la frase es *"lo he escrito pero no lo he probado"*. Nunca
