@@ -1,8 +1,8 @@
 # Supabase — configuración y las tres reglas
 
 Supabase nos da base de datos, login y almacenamiento de ficheros sin instalar nada.
-A cambio, tiene tres trampas que hay que cerrar el día 1 o se convierten en un
-agujero de seguridad.
+A cambio, tiene tres trampas que hay que cerrar desde el principio o se convierten en
+un agujero de seguridad.
 
 > Verifica siempre la API actual con Context7 (`/supabase/supabase`) antes de copiar
 > código de aquí: `@supabase/ssr` cambia a menudo.
@@ -61,7 +61,7 @@ que hace que los datos del seed pertenezcan al usuario con el que haces la demo.
 
 > El reclamo solo ocurre si Supabase ha **confirmado** el correo. Por eso, mientras
 > tengas "Confirm email" desactivado en desarrollo, el usuario del seed no se enlaza:
-> es lo correcto. Reactívalo el día 6 (está en el plan) y el enlace funciona.
+> es lo correcto. Se reactiva en el hito H6 (está en el plan) y el enlace funciona.
 
 **Nunca** uses `supabase.auth.getSession()` para decidir si alguien puede ver algo:
 no revalida el token. `getUser()` sí.
@@ -109,7 +109,7 @@ no la pongas en el `.env`.
 3. Copiar URL, anon key, `DATABASE_URL` y `DIRECT_URL` al `.env`.
 4. Authentication → Providers → Email activado. **Desactivar "Confirm email"**
    durante el desarrollo (si no, cada usuario de prueba necesita confirmar el correo).
-   Volver a activarlo el día 6.
+   Volver a activarlo en el hito H6.
 5. `npx prisma db push` → las tablas aparecen en el panel.
 6. Table Editor → activar RLS en cada tabla, sin políticas (deny total). Como la app
    entra con Prisma y la contraseña de la base de datos, sigue funcionando.

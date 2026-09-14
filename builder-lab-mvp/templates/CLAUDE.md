@@ -51,7 +51,7 @@ docs/ALCANCE.md
 - `npx prisma db push` cada vez que cambies el modelo. Nada más. Sin `migrate`: la base de datos de Supabase es la misma en local y en producción.
 - Índice en toda clave foránea por la que se filtre y en todo campo usado en `where`.
 - Nada de borrado físico en entidades del core: `deletedAt DateTime?` y filtrar.
-- `prisma/seed.ts` con datos realistas. Se mantiene al día desde el día 2.
+- `prisma/seed.ts` con datos realistas, al día desde que hay datos que enseñar.
 
 ## Seguridad — no negociable
 
@@ -64,7 +64,7 @@ docs/ALCANCE.md
 - `.env` está en `.gitignore` desde el primer commit. `.env.example` no lleva valores reales.
 - Los errores que se devuelven al cliente no incluyen stack traces, SQL ni nombres de tabla.
 - Si una clave llega a subirse a git: **primero se rota** en su panel, después se limpia git. Borrar el commit no desactiva la clave.
-- Antes del deploy final se pasa entera la checklist de auditoría del día 6.
+- Antes de dar el MVP por presentable se pasa entera la checklist de auditoría.
 
 ## Estilos
 
@@ -97,5 +97,5 @@ Una tarea está hecha cuando se cumplen las dos cosas, no antes:
 2. `npm run check` pasa (reglas del proyecto + tipos).
 
 Si no lo has ejecutado, la frase es *"lo he escrito pero no lo he probado"*. Nunca
-"debería funcionar". Un fallo dicho a tiempo cuesta minutos; descubierto el día 7,
+"debería funcionar". Un fallo dicho a tiempo cuesta minutos; descubierto en la demo,
 cuesta el MVP.

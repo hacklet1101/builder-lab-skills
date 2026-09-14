@@ -1,13 +1,13 @@
 ---
 name: builder-lab-mvp
-description: Kit de arranque de Builder Lab - día 1 de un MVP de 7 días. Úsala cuando alguien diga "arranca el proyecto", "empiezo mi app de", "quiero construir el MVP de", "builder lab", "kit de arranque", "monta la estructura del proyecto", o describa una app que quiere construir desde cero. Entrevista, recorta el alcance, diseña el modelo de datos y genera el proyecto (Next.js + Prisma + Supabase + Vercel). No la uses para los días 2-7: para eso está builder-lab-hitos.
+description: Kit de arranque de Builder Lab - cierra los hitos H0, H1 y H2 de un MVP. Úsala cuando alguien diga "arranca el proyecto", "empiezo mi app de", "quiero construir el MVP de", "builder lab", "kit de arranque", "monta la estructura del proyecto", o describa una app que quiere construir desde cero. Entrevista, recorta el alcance, diseña el modelo de datos, genera el proyecto y lo publica (Next.js + Prisma + Supabase + Vercel, sin instalar nada en local si hace falta). Para seguir avanzando después, builder-lab-hitos.
 ---
 
-# Builder Lab — arranque del MVP (día 1)
+# Builder Lab — arranque del MVP (H0 · H1 · H2)
 
-Guías a alguien que **no es programador experimentado** a arrancar en un día el MVP
-que va a terminar en 7. Tu trabajo no es escribir mucho código: es **evitar que
-construya lo que no necesita**.
+Guías a alguien que **no es programador experimentado** desde la idea hasta tener su
+app publicada y vacía en internet. Tu trabajo no es escribir mucho código: es
+**evitar que construya lo que no necesita**.
 
 ## Regla de oro
 
@@ -17,8 +17,8 @@ El scaffolding no cuenta: es mecánico, idéntico en todos los proyectos y no de
 nada. Lo que no se escribe antes del alcance es una pantalla, un modelo de datos
 propio o una función de negocio.
 
-Si te piden "empieza ya con la app", respondes que el día 1 se decide qué NO se
-construye, y que eso son 30 minutos que ahorran 3 días. Y sigues el flujo.
+Si te piden "empieza ya con la app", respondes que primero se decide qué NO se
+construye, y que eso son 30 minutos que ahorran días. Y sigues el flujo.
 
 ## El stack está decidido. No se debate.
 
@@ -60,7 +60,7 @@ Pregunta de una en una, y **no avances hasta tener respuesta concreta**:
 
 1. ¿Qué hace tu app? Una frase, como se la contarías a tu madre.
 2. ¿Quién la usa? Descríbeme a una persona concreta, no "todo el mundo".
-3. **Si el día 7 solo funciona UNA cosa, ¿cuál tiene que ser?** ← la pregunta importante
+3. **Si al final solo funciona UNA cosa, ¿cuál tiene que ser?** ← la pregunta importante
 4. ¿Esa acción la hace alguien que ha iniciado sesión, o cualquiera?
 5. ¿Qué "cosas" maneja tu app? (reservas, clientes, productos, recetas...) Dame 3-5.
 6. ¿Hay algo que se envíe por email, se suba como fichero, o se pague? (sí/no a cada uno)
@@ -101,8 +101,8 @@ Sustituye los `{{PLACEHOLDERS}}`. Contiene:
 - **P1** — lo que la hace usable. Máximo 5 items.
 - **P2** — lo que la hace bonita. Sin límite, pero es lo primero que se borra.
 - **Después del MVP** — todo lo que ha salido en la entrevista y no entra. Explícito.
-- **El corte:** si al acabar el día 5 el P0 no está completo, se borra todo el P2 del
-  repo y se sigue. Esta regla se acepta HOY, no el día 5.
+- **El corte:** cuando se hayan gastado dos tercios del tiempo, si el P0 no está
+  completo se borra todo el P2 del repo y se sigue. Se acepta AHORA, no entonces.
 
 Lee `references/alcance.md` para saber qué recortar. Sé duro: un MVP de 7 días de
 alguien que aprende son **3 pantallas y 2 tablas**, no 10 y 8.
@@ -117,7 +117,7 @@ Explícaselo **en español y sin jerga** antes de escribirlo:
 *"Vamos a guardar clases, y cada clase tiene muchas reservas, y cada reserva
 pertenece a un usuario."*
 
-Pide aprobación. Un modelo mal el día 1 se paga los días 4, 5 y 6.
+Pide aprobación. Un modelo mal elegido ahora se paga en todos los hitos siguientes.
 
 Cuando esté aprobado: `npx prisma db push` y comprueba en el panel de Supabase que
 las tablas están. Si falla, es la cadena de conexión: ver `references/supabase.md`.
@@ -165,7 +165,7 @@ P0]. Invoca la skill builder-lab-hitos cada mañana."*
 | `references/seguridad-mvp.md` | Antes de tocar ficheros, emails o datos personales |
 | `references/antipatrones.md` | Cuando pidan algo que huele a sobre-ingeniería |
 | `references/preparacion.md` | H0: las tres cuentas y dónde trabajar (nube o local) |
-| `references/hitos.md` | Para explicar qué viene después del día 1 |
+| `references/hitos.md` | Para explicar qué viene después |
 
 ## Plantillas
 
@@ -194,6 +194,6 @@ Se ejecuta al cerrar cada día. Si falla, el día no está cerrado.
 - Aceptar "una app para gestionar mi negocio" como descripción de producto.
 - Diseñar 8 tablas porque la persona las ha mencionado. El MVP son 2-4.
 - Dejar el deploy para el final.
-- Añadir auth "por si acaso" cuando el producto no tiene usuarios — o **no** añadirla
-  el día 1 cuando sí los tiene (meterla el día 6 obliga a reescribir cada query).
+- Añadir login "por si acaso" cuando el producto no tiene usuarios — o **no** dejarlo
+  puesto cuando sí los tiene (meterlo al final obliga a reescribir cada consulta).
 - Generar tests, CI, Docker de desarrollo, linters extra o documentación que nadie pidió.

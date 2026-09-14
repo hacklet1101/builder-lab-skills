@@ -1,5 +1,5 @@
 /**
- * Datos de ejemplo. Se mantiene al día desde el día 2.
+ * Datos de ejemplo. Se mantiene al día desde que haya algo que enseñar.
  * Una demo con la base de datos vacía no es una demo.
  *
  *   npm run seed

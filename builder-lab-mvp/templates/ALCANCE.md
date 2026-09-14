@@ -46,8 +46,8 @@ Todo lo que salió en la conversación y no entra. No se pierde, se aplaza:
 
 ## Acuerdo del corte
 
-> Si al acabar el día 5 el P0 no está completo, se borra todo el P2 del repo y se
-> sigue solo con lo esencial.
+> Cuando haya gastado dos tercios de mi tiempo, si el P0 no está completo, se borra
+> todo el P2 del repo y se sigue solo con lo esencial.
 
 Aceptado el {{FECHA}}.
 

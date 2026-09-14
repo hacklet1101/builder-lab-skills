@@ -1,7 +1,7 @@
 # Deploy en Vercel
 
-**Se despliega el día 1, con la app vacía.** Desplegar por primera vez el día 7 es la
-causa número uno de terminar sin MVP.
+**Se publica antes de escribir la primera pantalla, con la app vacía.** Publicar por
+primera vez al final es la causa número uno de terminar sin MVP.
 
 Vercel en su plan gratuito: sin tarjeta, sin servidor, sin Docker. Cada `git push`
 despliega solo.
@@ -12,7 +12,7 @@ Solo la aplicación Next.js. La base de datos la gestiona Supabase, y es **la mi
 en local y en producción: no hay dos entornos que sincronizar, y para un MVP eso es
 una ventaja, no un descuido.
 
-## Primera vez (día 1, 20 minutos)
+## Primera vez (20 minutos)
 
 1. El proyecto está en GitHub, en un repositorio **privado**.
 2. Entra en vercel.com y crea la cuenta **con GitHub**. Así Vercel ve tus repos.
@@ -28,14 +28,14 @@ una ventaja, no un descuido.
    en **Redirect URLs**. Sin esto, los enlaces de confirmación de correo apuntan a
    `localhost` y el login no funciona en producción.
 
-Abre la URL. Si carga la página de inicio, día 1 cerrado.
+Abre la URL, mejor desde el móvil. Si carga la página de inicio, **H2 cerrado**.
 
 ## Todos los días
 
 `git push` y ya está: Vercel despliega la rama `main` sola. Abre la URL y comprueba
 que lo de hoy está.
 
-**Dos días sin mirar la URL de producción = deuda que explota el día 7.**
+**Dos sesiones sin mirar la URL pública = deuda que explota en la demo.**
 
 ## El esquema de la base de datos
 
@@ -83,5 +83,5 @@ sobra. Lo único a tener en cuenta:
 ## Dominio propio
 
 Opcional y solo si sobra tiempo. Vercel → Settings → Domains. Los DNS tardan en
-propagarse: si quieres dominio para la demo, configúralo el **día 5**, no el 7. La
-URL `.vercel.app` sirve perfectamente para presentar.
+propagarse: si quieres dominio para la demo, configúralo **un par de días antes**, no
+la víspera. La URL `.vercel.app` sirve perfectamente para presentar.
