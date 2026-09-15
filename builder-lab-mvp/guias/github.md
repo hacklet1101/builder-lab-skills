@@ -47,6 +47,10 @@ nada, dímelo y lo resolvemos.
 **4.** Copia la dirección del repositorio de la barra del navegador y pásamela.
 Tiene esta pinta: `https://github.com/tu-usuario/reservas-gimnasio`
 
+> Si ya tienes la cuenta de Vercel conectada con permiso sobre todos tus
+> repositorios, este que acabas de crear **ya aparece en Vercel**. No hay que hacer
+> nada todavía: lo publicaremos cuando haya código dentro.
+
 ---
 
 ## Parte 3 — Que tu espacio de trabajo pueda subir código

@@ -78,7 +78,7 @@ todos de golpe.
 | `guias/github.md` | Crear la cuenta y el repositorio privado |
 | `guias/codespaces.md` | Abrir un espacio de trabajo en el navegador, sin instalar nada |
 | `guias/supabase.md` | Crear el proyecto y sacar las dos cadenas de conexión |
-| `guias/vercel.md` | Publicar la app y dejarla conectada al repositorio |
+| `guias/vercel.md` | Parte 1: la cuenta (paso 0). Parte 2: publicar (paso 5) |
 | `guias/subir-cambios.md` | Guardar y publicar los cambios del día |
 | `guias/local.md` | Solo si trabaja en su propio ordenador |
 
@@ -105,7 +105,16 @@ tienes que tener **cuatro datos** apuntados:
 
 Sin esas cuatro cosas no sigas: el paso 4 no puede funcionar.
 
-**3. Si algo del entorno falla** —git sin configurar, Node viejo, sin acceso a
+**3. La cuenta de Vercel, ya.** Dicta solo la **Parte 1** de `guias/vercel.md`: crear
+la cuenta entrando con GitHub y, cuando GitHub pregunte a qué repositorios da acceso,
+**elegir "All repositories"**.
+
+Se hace ahora y no en el paso 5 por un motivo práctico: con ese permiso, el
+repositorio aparece solo en Vercel y publicar es un clic. Si se deja para el final, la
+persona se encuentra con una lista vacía y hay que ir a tocar permisos, que es donde
+más gente se atasca.
+
+**4. Si algo del entorno falla** —git sin configurar, Node viejo, sin acceso a
 GitHub— arréglalo ahora con `guias/local.md` o `guias/codespaces.md` según dónde
 esté. No empieces con el entorno a medias.
 
@@ -206,7 +215,9 @@ las tablas están. Si falla, es la cadena de conexión: ver `references/supabase
    proyecto no está conectado a GitHub todavía — lo resuelve
    `guias/subir-cambios.md` § "Si tu proyecto todavía no está en GitHub".
 2. Dicta `guias/subir-cambios.md` para subir el código.
-3. Dicta `guias/vercel.md` paso a paso.
+3. Dicta la **Parte 2** de `guias/vercel.md` (la cuenta ya se creó en el paso 0).
+   Si en el paso 0 se eligió "All repositories", el repositorio ya está esperando en
+   la lista de Vercel.
 
 `references/deploy.md` es tu chuleta técnica: qué mirar cuando falla y cómo hacer
 rollback. La guía es lo que dictas; la referencia, lo que consultas.

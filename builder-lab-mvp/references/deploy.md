@@ -17,9 +17,10 @@ una ventaja, no un descuido.
 
 ## Primera vez (20 minutos)
 
+0. La cuenta de Vercel ya está creada desde el principio, entrando con GitHub y con
+   permiso sobre **todos** los repositorios. Si se hizo así, el repo ya aparece solo.
 1. El proyecto está en GitHub, en un repositorio **privado**.
-2. Entra en vercel.com y crea la cuenta **con GitHub**. Así Vercel ve tus repos.
-3. Add New → Project → elige el repositorio → Import.
+2. Add New → Project → el repositorio está en la lista → Import.
 4. Framework Preset: **Next.js**. No toques Build Command ni Output Directory.
 5. **Environment Variables**: pega ahí todo lo que tienes en tu `.env`:
    `DATABASE_URL`, `DIRECT_URL`, `NEXT_PUBLIC_SUPABASE_URL`,

@@ -80,7 +80,8 @@ echo
 echo "Cuentas que necesitas (compruébalas tú, se hacen todas desde el navegador):"
 echo "  □ GitHub   — puedes crear repositorios privados"
 echo "  □ Supabase — supabase.com, proyecto creado, contraseña de la BD guardada"
-echo "  □ Vercel   — vercel.com, cuenta creada CON GitHub, plan gratuito"
+echo "  □ Vercel   — vercel.com, cuenta creada CON GitHub y con acceso a TODOS"
+echo "               los repositorios (así el tuyo aparece solo al publicar)"
 echo
 
 echo "────────────────────────────────────"

@@ -9,33 +9,53 @@ Esto se hace **con la app vacía**, antes de construir ninguna pantalla. Explíc
 > dirección que enseñar. Dejarlo para el final es la forma más habitual de acabar sin
 > nada que enseñar."*
 
-**Requisito:** el código ya tiene que estar subido a GitHub. Si no, guía
-`subir-cambios.md` primero.
+Esta guía tiene dos partes que se hacen en momentos distintos:
+
+- **Parte 1 — la cuenta:** se hace **al principio**, junto con GitHub y Supabase.
+- **Parte 2 — publicar:** se hace cuando ya hay código subido.
 
 ---
 
-## Parte 1 — La cuenta
+## Parte 1 — La cuenta (hazlo al principio)
 
 **1.** Abre **vercel.com** y pulsa **Sign Up**.
 
-**2.** Elige **Continue with GitHub** y autoriza. Es importante que sea con GitHub:
-así Vercel ve tus repositorios.
+**2.** Elige **Continue with GitHub**.
 
-**3.** Si te pregunta el tipo de cuenta, elige **Hobby** (el gratuito). Si te pide un
+**3.** GitHub te preguntará a qué repositorios quiere acceder Vercel. Aquí hay una
+elección que importa:
+
+> **Elige "All repositories".**
+
+Con esa opción, **cualquier repositorio que crees a partir de ahora aparece solo en
+Vercel**, listo para publicar con un clic. Con la otra opción ("Only select
+repositories") tendrías que venir a dar permisos a mano cada vez, y es justo donde se
+atasca la gente.
+
+*Son tus repositorios personales y Vercel solo lee el código para construir la web. Si
+prefieres la opción restringida, funciona igual: solo tendrás que añadir el repositorio
+a mano en la Parte 2.*
+
+**4.** Si te pregunta el tipo de cuenta, elige **Hobby** (el gratuito). Si te pide un
 nombre, el tuyo.
 
-✅ **Comprobación:** llegas a un panel que dice que no tienes proyectos todavía.
+✅ **Comprobación:** llegas a un panel de Vercel. Si ya tenías el repositorio creado,
+puede que aparezca ahí mismo sugerido para importar.
 
 ---
 
-## Parte 2 — Importar el proyecto
+## Parte 2 — Publicar (cuando ya hay código subido)
+
+**Requisito:** el código ya tiene que estar en GitHub. Si no, guía
+`subir-cambios.md` primero.
 
 **1.** Pulsa **Add New…** → **Project**.
 
-**2.** Verás la lista de tus repositorios de GitHub. Busca el tuyo y pulsa **Import**.
+**2.** Verás la lista de tus repositorios. El tuyo debería estar arriba, porque es el
+más reciente. Pulsa **Import**.
 
-→ *Si no aparece:* pulsa **Adjust GitHub App Permissions** (o *Configure GitHub App*)
-y dale acceso al repositorio. Es porque Vercel solo ve los repos que le autorizas.
+→ *Si no aparece:* es que en la Parte 1 se eligió "Only select repositories". Pulsa
+**Adjust GitHub App Permissions** (o *Configure GitHub App*) y añade el repositorio.
 
 **3.** En la pantalla de configuración:
 - **Framework Preset:** debe decir **Next.js**. Si lo dice, no toques nada más.
@@ -45,7 +65,7 @@ y dale acceso al repositorio. Es porque Vercel solo ve los repos que le autoriza
 
 ---
 
-## Parte 3 — Las variables de entorno
+## Parte 2b — Las variables de entorno
 
 Son los datos de Supabase. Yo te digo el nombre y el valor de cada una; tú las vas
 añadiendo.
@@ -67,7 +87,7 @@ Es el fallo número uno aquí.
 
 ---
 
-## Parte 4 — Publicar
+## Parte 2c — Desplegar
 
 **1.** Pulsa **Deploy**.
 
@@ -87,7 +107,7 @@ Pégame las últimas 20 líneas y lo arreglamos.
 
 ---
 
-## Parte 5 — Dos cosas que hay que cerrar ahora
+## Parte 2d — Dos cosas que hay que cerrar ahora
 
 **1. La dirección, en las variables.**
 En Vercel: **Settings → Environment Variables**, añade
@@ -117,7 +137,7 @@ comprobar que lo de hoy está.
 
 | Lo que pasa | Qué hacer |
 |---|---|
-| El repositorio no aparece en la lista | Adjust GitHub App Permissions → dale acceso |
+| El repositorio no aparece en la lista | Se eligió "Only select repositories" al conectar. Adjust GitHub App Permissions → añade el repositorio (o cambia a All repositories y te olvidas para siempre) |
 | Falla el build | Deployments → el que falló → **Build Logs**. Pégame las últimas líneas |
 | Publica, pero la página da error | Mira **Runtime Logs**, no los de build |
 | Funciona en tu ordenador y no aquí | Casi siempre falta una variable de entorno, o se añadió después del último despliegue: hay que redesplegar |

@@ -23,16 +23,21 @@ va diciendo todo lo demás.
 
 **1. Crea una cuenta en [github.com](https://github.com)** si no la tienes.
 
-**2. Crea un repositorio para tu app.** Botón **+** arriba a la derecha → *New
+**2. Crea una cuenta en [vercel.com](https://vercel.com)** con **Continue with
+GitHub**. Cuando GitHub te pregunte a qué repositorios dar acceso, elige **"All
+repositories"**. Son 30 segundos ahora y hacen que después publicar tu app sea un
+clic: cada repositorio que crees aparecerá solo en Vercel.
+
+**3. Crea un repositorio para tu app.** Botón **+** arriba a la derecha → *New
 repository*. Ponle un nombre en minúsculas y con guiones (`reservas-gimnasio`), marca
 **Private**, y **no marques ninguna casilla más**. Pulsa *Create repository*.
 
-**3. Ábrelo en Codespaces.** En la página de tu repositorio: botón verde **Code** →
+**4. Ábrelo en Codespaces.** En la página de tu repositorio: botón verde **Code** →
 pestaña **Codespaces** → *Create codespace on main*. Tarda un minuto y te abre un
 editor con una terminal abajo. **Esto es un ordenador de programar dentro de tu
 navegador: el tuyo no tiene que instalar nada.**
 
-**4. Pega esto en la terminal** (los tres comandos, uno detrás de otro):
+**5. Pega esto en la terminal** (los tres comandos, uno detrás de otro):
 
 ```bash
 npm install -g @anthropic-ai/claude-code
@@ -40,7 +45,7 @@ git clone https://github.com/hacklet1101/builder-lab-skills.git ~/builder-lab-sk
 bash ~/builder-lab-skills/install.sh
 ```
 
-**5. Arranca Claude y pídele empezar:**
+**6. Arranca Claude y pídele empezar:**
 
 ```bash
 claude
@@ -55,8 +60,8 @@ a paso: qué cuentas crear, qué pulsar y qué pegar. No tienes que saber nada d
 de antemano.
 
 > **¿Prefieres trabajar en tu propio ordenador?** Puedes: necesitas Node 20+, git y
-> Claude Code instalados (en Windows, dentro de WSL2). Sáltate el paso 3, clona tu
-> repositorio y ejecuta los comandos del paso 4 en tu terminal. El detalle está en
+> Claude Code instalados (en Windows, dentro de WSL2). Sáltate el paso 4, clona tu
+> repositorio y ejecuta los comandos del paso 5 en tu terminal. El detalle está en
 > `builder-lab-mvp/guias/local.md`.
 
 ---
@@ -92,7 +97,8 @@ Tres cuentas, todas gratis, todas desde el navegador, ninguna pide tarjeta:
 - **GitHub** — donde vive el código.
 - **Supabase** — la base de datos. Entra con GitHub y **guarda la contraseña de la
   base de datos en un gestor de contraseñas: no se puede recuperar.**
-- **Vercel** — donde vive tu app. Entra con GitHub, plan gratuito.
+- **Vercel** — donde vive tu app. Entra con GitHub y dale acceso a **todos** los
+  repositorios: así cada repo nuevo aparece solo y publicar es un clic. Plan gratuito.
 
 ### Dónde vas a trabajar
 

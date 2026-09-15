@@ -19,10 +19,15 @@ Las tres son gratis y ninguna pide tarjeta.
 |---|---|---|
 | **GitHub** | github.com | Crear la cuenta. Aquí vive el código |
 | **Supabase** | supabase.com | Entrar **con GitHub**, crear un proyecto, **guardar la contraseña de la base de datos en un gestor de contraseñas** — no se puede recuperar |
-| **Vercel** | vercel.com | Entrar **con GitHub**, plan gratuito (Hobby). Así Vercel ve tus repositorios y publicar es un clic |
+| **Vercel** | vercel.com | Entrar **con GitHub** y darle acceso a **todos** los repositorios ("All repositories"). Así cada repo que crees aparece solo en Vercel y publicar es un clic. Plan gratuito (Hobby) |
 
 Entrar con GitHub en las tres no es un detalle: evita tres contraseñas más y hace que
 todo se conecte solo.
+
+**La cuenta de Vercel se crea ahora, no al final.** Con el permiso sobre todos los
+repositorios, el proyecto aparece en Vercel en cuanto exista y publicarlo es pulsar un
+botón. Dejarlo para el momento de publicar significa encontrarse una lista vacía y
+tener que ir a ajustar permisos, que es donde más gente se atasca.
 
 ---
 
